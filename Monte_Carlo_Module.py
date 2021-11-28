@@ -29,17 +29,23 @@ def num_assign(num_resident):
     # return num_family_weekday, num_family_weekend, num_solitude_weekday, num_solitude_weekend, num_couple_weekday, num_couple_weekend
 
     # 随机分配 具体洗衣时间 工作日（周一~周五）， 周末（周六~周日）
-    family_weekday_assign = np.random.randint(1, 6, size=num_family_weekday)
-    solitude_weekday_assign = np.random.randint(1, 6, size=num_solitude_weekday)
-    couple_weekday_assign = np.random.randint(1, 6, size=num_couple_weekday)
-    family_weekend_assign = np.random.randint(1, 6, size=num_family_weekend)
-    solitude_weekend_assign = np.random.randint(1, 6, size=num_solitude_weekend)
-    couple_weekend_assign = np.random.randint(1, 6, size=num_couple_weekend)
+    family_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_family_weekday))))
+    solitude_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_solitude_weekday))))
+    couple_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_couple_weekday))))
+    family_weekend_assign = dict(Counter((np.random.randint(6, 8, size=num_family_weekend))))
+    solitude_weekend_assign = dict(Counter((np.random.randint(6, 8, size=num_solitude_weekend))))
+    couple_weekend_assign = dict(Counter((np.random.randint(6, 8, size=num_couple_weekend))))
 
     # for each list stores [family_num, solitude_num, couple_num]
-    Monday_num = [family_weekday_assign]
+    Monday_num = [family_weekday_assign[1],solitude_weekday_assign[1],couple_weekday_assign[1]]
+    Tuesday_num = [family_weekday_assign[2], solitude_weekday_assign[2], couple_weekday_assign[2]]
+    Wednesday_num = [family_weekday_assign[3], solitude_weekday_assign[3], couple_weekday_assign[3]]
+    Thursday_num = [family_weekday_assign[4], solitude_weekday_assign[4], couple_weekday_assign[4]]
+    Friday_num = [family_weekday_assign[5], solitude_weekday_assign[5], couple_weekday_assign[5]]
+    Saturday_num = [family_weekend_assign[6], solitude_weekend_assign[6], couple_weekend_assign[6]]
+    Sunday_num = [family_weekend_assign[7], solitude_weekend_assign[7], couple_weekend_assign[7]]
+    return Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num
 
-    return family_weekday_assign, solitude_weekday_assign, couple_weekday_assign, family_weekend_assign, solitude_weekend_assign, couple_weekend_assign
 
 def workday_OR_weekend(num_resident, day, frequency=1):
 
