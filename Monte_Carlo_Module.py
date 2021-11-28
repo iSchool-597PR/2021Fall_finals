@@ -7,9 +7,12 @@ import math
 
 def workday_OR_weekend(max_resident, day):
 
-    # residents prefer to wash in weekend
+    # only consider the cases in a week
     workday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     weekend = ["Saturday", "Sunday"]
+    # residents prefer to wash in weekend
+    workday_probability = 0.3
+    weekend_probability = 0.6
 
     if day in workday:
         # today is workday, and residents
