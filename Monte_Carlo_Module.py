@@ -3,6 +3,8 @@
 import numpy as np
 import pandas as pd
 import math
+from collections import deque, OrderedDict
+from collections import Counter
 # import statistics as st
 
 def num_assign(num_resident):
@@ -33,6 +35,9 @@ def num_assign(num_resident):
     family_weekend_assign = np.random.randint(1, 6, size=num_family_weekend)
     solitude_weekend_assign = np.random.randint(1, 6, size=num_solitude_weekend)
     couple_weekend_assign = np.random.randint(1, 6, size=num_couple_weekend)
+
+    # for each list stores [family_num, solitude_num, couple_num]
+    Monday_num = [family_weekday_assign]
 
     return family_weekday_assign, solitude_weekday_assign, couple_weekday_assign, family_weekend_assign, solitude_weekend_assign, couple_weekend_assign
 
@@ -107,3 +112,63 @@ class Laundry:
         # set the timeline of a week
         pass
 
+
+    # 银行排队模型
+    from collections import deque, OrderedDict
+    def QueBank(tmp):
+        empty = deque([])
+        count1 = deque([])
+        count2 = deque([])
+        count3 = deque([])
+        count4 = deque([])
+        wait_dict = dict()
+        count1_waitime = 0
+        count2_waitime = 0
+        count3_waitime = 0
+        count4_waitime = 0
+        results = []
+        for i in range(len(tmp)):
+            count_waitime = [count1_waitime, count2_waitime, count3_waitime, count4_waitime]
+            Best_count = count_waitime.index(min(count_waitime))
+            if Best_count == 0:
+                count1.append(i + 1)
+                count1_waitime += int(tmp[i]) * 5
+                if count1_waitime not in wait_dict:
+                    wait_dict[count1_waitime] = [(i + 1, 1)]
+                else:
+                    wait_dict[count1_waitime].append((i + 1, 1))
+            elif Best_count == 1:
+                count2.append(i + 1)
+                count2_waitime += int(tmp[i]) * 5
+                if count2_waitime not in wait_dict:
+                    wait_dict[count2_waitime] = [(i + 1, 2)]
+                else:
+                    wait_dict[count2_waitime].append((i + 1, 2))
+            elif Best_count == 2:
+                count3.append(i + 1)
+                count3_waitime += int(tmp[i]) * 5
+                if count3_waitime not in wait_dict:
+                    wait_dict[count3_waitime] = [(i + 1, 3)]
+                else:
+                    wait_dict[count3_waitime].append((i + 1, 3))
+            elif Best_count == 3:
+                count4.append(i + 1)
+                count4_waitime += int(tmp[i]) * 5
+                if count4_waitime not in wait_dict:
+                    wait_dict[count4_waitime] = [(i + 1, 4)]
+                else:
+                    wait_dict[count4_waitime].append((i + 1, 4))
+        order = sorted(wait_dict)
+        results = []
+        for key in order:
+            sort_value = sorted(wait_dict[key], key=lambda t: t[1])
+            results.append([each[0] for each in sort_value])
+        tmp = []
+        for each in results:
+            tmp += each
+        return tmp
+
+    tmp = input().split(" ")
+
+    tmp = [str(each) for each in QueBank(tmp)]
+    print(" ".join(tmp))
