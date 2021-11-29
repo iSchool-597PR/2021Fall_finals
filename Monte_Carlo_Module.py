@@ -44,23 +44,27 @@ def num_assign(num_resident):
     Friday_num = [family_weekday_assign[5], solitude_weekday_assign[5], couple_weekday_assign[5]]
     Saturday_num = [family_weekend_assign[6], solitude_weekend_assign[6], couple_weekend_assign[6]]
     Sunday_num = [family_weekend_assign[7], solitude_weekend_assign[7], couple_weekend_assign[7]]
+
+    # 返回每天三种不同unit的人数
     return Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num
 
 
-def workday_OR_weekend(num_resident, day, frequency=1):
+def total_num_of_eachday(num_resident, frequency=1):
+    Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num = 0, 0, 0, 0, 0, 0, 0
+    num_assign(num_resident)
+    # 首先根据frequency 确定排队人数
+    for _ in range(frequency):
+        m1, t1, w1, t2, f1, s1, s2 = num_assign(num_resident)
+        Monday_num += m1
+        Tuesday_num += t1
+        Wednesday_num += w1
+        Thursday_num += t2
+        Friday_num += f1
+        Saturday_num += s1
+        Sunday_num += s2
 
-    # 首先分配
+    return Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num
 
-    # only consider the cases in a week
-    workday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    weekend = ["Saturday", "Sunday"]
-    # residents prefer to wash in weekend
-    workday_probability = 0.3
-    weekend_probability = 0.6
-
-    if day in workday:
-        # today is workday, and residents
-        random_value = []
 
 # code reference https://github.com/Zainabzav/final_projects/blob/master/montecarlo_module.py
 class Laundry:
@@ -103,24 +107,7 @@ class Laundry:
 
         return cls(num_WashMachine, num_Dryer, num_resident, time_interval, washTime, dryTime, frequency)
 
-    def random_simulation(self, num_WashMachine, num_Dryer, num_resident, time_interval, washTime, dryTime, frequency):
-        '''
-        This function creat random variables to simulates the operation of the laundry within a week.
-        :param num_WashMachine:
-        :param num_Dryer:
-        :param num_resident:
-        :param time_interval:
-        :param washTime:
-        :param dryTime:
-        :param frequency:
-        :return:
-        '''
-        # set the timeline of a week
-        pass
-
-
     # 银行排队模型
-    from collections import deque, OrderedDict
     def QueBank(tmp):
         empty = deque([])
         count1 = deque([])
