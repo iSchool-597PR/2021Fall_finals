@@ -8,7 +8,7 @@ from collections import Counter
 # import statistics as st
 
 def num_assign(num_resident):
-    # frequency = k 执行k次num_assign();
+    # frequency = k execute k times num_assign();
     # according to "readme.md" -- The orchard downs contains almost same number of 2B2B and 1B1B. About 40% of 2B2B
     # tenants are families (more than 3 people), about 20% are one person, and about 40% are two people. For 1B1B,
     # about 50% are two people living, and about 50% are living alone.
@@ -20,15 +20,13 @@ def num_assign(num_resident):
     solitude = math.floor(0.4 * num_2b2b + 0.5 * num_1b1b)
     couple = num_resident - family - solitude
 
-    # 因为人们有更大的概率在周末洗衣服，假设在周末洗衣服概率为0.7，在工作日洗衣服概率为0.3
-    # 假设在周末 人们洗衣服的人数 -- 0 代表在周末洗衣服；1 代表在工作日洗衣服
+    # Because people have a greater probability of doing laundry on weekends, suppose the probability of doing laundry on weekends is 0.7, and the probability of doing laundry on workdays is 0.3
     num_family_weekday, num_solitude_weekday, num_couple_weekday = \
-        np.random.binomial(family,0.3), np.random.binomial(solitude,0.3), np.random.binomial(couple,0.3) # 在工作日洗衣服的人数
+        np.random.binomial(family,0.3), np.random.binomial(solitude,0.3), np.random.binomial(couple,0.3) # Number of people doing laundry on weekdays
     num_family_weekend, num_solitude_weekend, num_couple_weekend = \
-        family - num_family_weekday, family - num_solitude_weekday, family - num_couple_weekday # 在周末洗衣服的人数
-    # return num_family_weekday, num_family_weekend, num_solitude_weekday, num_solitude_weekend, num_couple_weekday, num_couple_weekend
+        family - num_family_weekday, family - num_solitude_weekday, family - num_couple_weekday # Number of people doing laundry on weekends
 
-    # 随机分配 具体洗衣时间 工作日（周一~周五）， 周末（周六~周日）
+    # Random allocation Specific laundry days -- Workdays (Monday~Friday), Weekends (Saturday~Sunday)
     family_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_family_weekday))))
     solitude_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_solitude_weekday))))
     couple_weekday_assign = dict(Counter((np.random.randint(1, 6, size=num_couple_weekday))))
@@ -45,14 +43,14 @@ def num_assign(num_resident):
     Saturday_num = [family_weekend_assign[6], solitude_weekend_assign[6], couple_weekend_assign[6]]
     Sunday_num = [family_weekend_assign[7], solitude_weekend_assign[7], couple_weekend_assign[7]]
 
-    # 返回每天三种不同unit的人数
+    # Return the number of people in three different units per day
     return Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num
 
 
 def total_num_of_eachday(num_resident, frequency=1):
     Monday_num, Tuesday_num, Wednesday_num, Thursday_num, Friday_num, Saturday_num, Sunday_num = 0, 0, 0, 0, 0, 0, 0
-    num_assign(num_resident)
-    # 首先根据frequency 确定排队人数
+
+    # The number of people in line according to "frequency"
     for _ in range(frequency):
         m1, t1, w1, t2, f1, s1, s2 = num_assign(num_resident)
         Monday_num += m1
@@ -108,7 +106,15 @@ class Laundry:
         return cls(num_WashMachine, num_Dryer, num_resident, time_interval, washTime, dryTime, frequency)
 
     # 银行排队模型
-    def QueBank(tmp):
+    def Que_Module(self, total_num_of_users):
+        # First we plan to separate each day into seven time intervals:
+        #       8am-10am, 10am-12pm, 12pm-2pm, 2pm-4pm, 4pm-6pm, 6pm-8pm, 8pm-10pm
+        #   A new batch of laundry customers will be added at the initial time of each interval (like 8am, 10am, 12pm, 2pm, ...)
+
+
+        pass
+
+    def QueBank(self, tmp):
         empty = deque([])
         count1 = deque([])
         count2 = deque([])
