@@ -21,8 +21,7 @@ import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
-# from geographiclib.geodesic import Geodesic
-# geod = Geodesic.WGS84
+from geopy.distance import geodesic
 
 
 def get_address(filename: str) -> pd.DataFrame:
@@ -114,7 +113,29 @@ if __name__ == '__main__':
     # output to csv to make sure the information in dataset is what we expected
     # we could remove it once we finish this part
 
+data = pd.read_csv('lat_long.csv')
+def calc_distance(data, a, b):
+    """
+    calculates distance between any 2 foodbanks
+    :param data: dataframe
+    :param a: foodbank 1
+    :param b: foodbank 2
+    :return: distance in kms
+    """
+    lon = data['longitude']
+    lat = data['latitude']
+    lat = lat.to_list()
+    lon = lon.to_list()
+    food_bank = data['Food Bank']
+    food_bank = food_bank.to_list()
+    loc1 = food_bank.index(a)
+    loc2 = food_bank.index(b)
 
+    return (geodesic([lat[loc1], lon[loc1]], [lat[loc2], lon[loc2]]).km)
+
+
+# distance = calc_distance(data, 'Feeding the Gulf Coast', 'Food Bank of Alaska, Inc.')
+# print(distance)
 
 graph=nx.Graph()
 def add_foodbank_node(graph,foodbank_node:str):
