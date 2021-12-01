@@ -12,12 +12,17 @@ into a text file and parse it line by line to get the addresses we need.
 Source:
 Feeding America
 https://www.feedingamerica.org/find-your-local-foodbank)
-(Zip code dataset source and url)
+https://www.listendata.com/2020/11/zip-code-to-latitude-and-longitude.html
 
 """
 
 
+import csv
 import pandas as pd
+import matplotlib.pyplot as plt
+import networkx as nx
+# from geographiclib.geodesic import Geodesic
+# geod = Geodesic.WGS84
 
 
 def get_address(filename: str) -> pd.DataFrame:
@@ -108,3 +113,36 @@ if __name__ == '__main__':
     # foodbank_with_address.to_csv('foodbank_with_address.csv', index=True)
     # output to csv to make sure the information in dataset is what we expected
     # we could remove it once we finish this part
+
+
+
+graph=nx.Graph()
+def add_foodbank_node(graph,foodbank_node:str):
+    f1 = csv.reader(open("lat_long.csv"))
+    for i in f1:
+        lat = i[10]
+        lon = i[9]
+        foodbank_node = i[0]
+        pop_attr = i[2]
+        graph.add_node(foodbank_node,lat=lat,lon=lon,population=pop_attr)
+#         nx.draw_networkx(graph)
+#G.number_of_nodes()
+add_foodbank_node(graph,'Arkansas Foodbank')
+print(graph.nodes['Arkansas Foodbank'])
+
+f1 = pd.read_csv("lat_long.csv")
+graph = nx.from_pandas_edgelist(f1,source = 'statecode', target='Food Bank')
+type(graph)
+print(nx.info(graph))
+# graph.edges()
+
+plt.figure(figsize=(50,200))
+f = nx.draw(graph,with_labels=True,node_size= 500,
+        node_color='#82CAFF',
+        font_size=16,
+        font_weight ='bold',
+        font_color='black',
+        edge_color = ('#E55451','#810541','#00FF00'),
+        node_shape='o',
+       width=2)
+plt.savefig("figure.png")
