@@ -113,57 +113,57 @@ if __name__ == '__main__':
     # output to csv to make sure the information in dataset is what we expected
     # we could remove it once we finish this part
 
-data = pd.read_csv('lat_long.csv')
-def calc_distance(data, a, b):
-    """
-    calculates distance between any 2 foodbanks
-    :param data: dataframe
-    :param a: foodbank 1
-    :param b: foodbank 2
-    :return: distance in kms
-    """
-    lon = data['longitude']
-    lat = data['latitude']
-    lat = lat.to_list()
-    lon = lon.to_list()
-    food_bank = data['Food Bank']
-    food_bank = food_bank.to_list()
-    loc1 = food_bank.index(a)
-    loc2 = food_bank.index(b)
-
-    return (geodesic([lat[loc1], lon[loc1]], [lat[loc2], lon[loc2]]).km)
+# data = pd.read_csv('lat_long.csv')
+# def calc_distance(data, a, b):
+#     """
+#     calculates distance between any 2 foodbanks
+#     :param data: dataframe
+#     :param a: foodbank 1
+#     :param b: foodbank 2
+#     :return: distance in kms
+#     """
+#     lon = data['longitude']
+#     lat = data['latitude']
+#     lat = lat.to_list()
+#     lon = lon.to_list()
+#     food_bank = data['Food Bank']
+#     food_bank = food_bank.to_list()
+#     loc1 = food_bank.index(a)
+#     loc2 = food_bank.index(b)
+#
+#     return (geodesic([lat[loc1], lon[loc1]], [lat[loc2], lon[loc2]]).km)
 
 
 # distance = calc_distance(data, 'Feeding the Gulf Coast', 'Food Bank of Alaska, Inc.')
 # print(distance)
 
-graph=nx.Graph()
-def add_foodbank_node(graph,foodbank_node:str):
-    f1 = csv.reader(open("lat_long.csv"))
-    for i in f1:
-        lat = i[10]
-        lon = i[9]
-        foodbank_node = i[0]
-        pop_attr = i[2]
-        graph.add_node(foodbank_node,lat=lat,lon=lon,population=pop_attr)
-#         nx.draw_networkx(graph)
-#G.number_of_nodes()
-add_foodbank_node(graph,'Arkansas Foodbank')
-print(graph.nodes['Arkansas Foodbank'])
-
-f1 = pd.read_csv("lat_long.csv")
-graph = nx.from_pandas_edgelist(f1,source = 'statecode', target='Food Bank')
-type(graph)
-print(nx.info(graph))
-# graph.edges()
-
-plt.figure(figsize=(50,200))
-f = nx.draw(graph,with_labels=True,node_size= 500,
-        node_color='#82CAFF',
-        font_size=16,
-        font_weight ='bold',
-        font_color='black',
-        edge_color = ('#E55451','#810541','#00FF00'),
-        node_shape='o',
-       width=2)
-plt.savefig("figure.png")
+# graph=nx.Graph()
+# def add_foodbank_node(graph,foodbank_node:str):
+#     f1 = csv.reader(open("lat_long.csv"))
+#     for i in f1:
+#         lat = i[10]
+#         lon = i[9]
+#         foodbank_node = i[0]
+#         pop_attr = i[2]
+#         graph.add_node(foodbank_node,lat=lat,lon=lon,population=pop_attr)
+# #         nx.draw_networkx(graph)
+# #G.number_of_nodes()
+# add_foodbank_node(graph,'Arkansas Foodbank')
+# print(graph.nodes['Arkansas Foodbank'])
+#
+# f1 = pd.read_csv("lat_long.csv")
+# graph = nx.from_pandas_edgelist(f1,source = 'statecode', target='Food Bank')
+# type(graph)
+# print(nx.info(graph))
+# # graph.edges()
+#
+# plt.figure(figsize=(50,200))
+# f = nx.draw(graph,with_labels=True,node_size= 500,
+#         node_color='#82CAFF',
+#         font_size=16,
+#         font_weight ='bold',
+#         font_color='black',
+#         edge_color = ('#E55451','#810541','#00FF00'),
+#         node_shape='o',
+#        width=2)
+# plt.savefig("figure.png")
