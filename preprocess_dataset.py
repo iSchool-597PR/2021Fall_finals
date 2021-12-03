@@ -113,6 +113,32 @@ if __name__ == '__main__':
     # output to csv to make sure the information in dataset is what we expected
     # we could remove it once we finish this part
 
+
+#combining the zip codes to lat long values
+
+data = pd.read_csv('foodbank_with_address.csv')
+zip = pd.read_csv('zip.csv')
+data.head()
+combine = pd.merge(data,zip,how='right',left_on='zip_code',right_on='postal code')
+df = combine.dropna()
+df.head()
+req_cols = df[['Food Bank','Total Population','Revised Projections March 2021 Food Insecurity%','Revised Projections March 2021 Food Insecurity#'
+              ,'address_1','postal code','state_y','statecode','latitude','longitude']]
+zip_data=req_cols.reset_index()
+zip_data.head()
+zip_data.set_index('Food Bank',inplace=True)
+# zip_data
+
+zip_data.to_csv('lat_long.csv', index=True)
+zd = pd.read_csv('lat_long.csv')
+# print(zd.head())
+
+
+
+
+
+
+
 # data = pd.read_csv('lat_long.csv')
 # def calc_distance(data, a, b):
 #     """
