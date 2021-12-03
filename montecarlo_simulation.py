@@ -44,10 +44,11 @@ if __name__ == '__main__':
     ppl_insecure = math.ceil(ttl_ppl * insecure_percentage)
     ppl_potential_supply = math.ceil(ttl_ppl * potential_supply)
     # level of freshness: d3 means the food will spoil in 3 days
-    shelf_life = ['d3', 'd2', 'd1', 'd0']
+    # shelf_life = ['d3', 'd2', 'd1', 'd0']
+    shelf_life = ['d5', 'd4', 'd3', 'd2', 'd1', 'd0']
 
     # assume potential population provide supply once per ten days, the probability per day is 0.1
-    supply_initial = np.random.binomial(ppl_potential_supply, 0.1, 4)
+    supply_initial = np.random.binomial(ppl_potential_supply, 0.1, len(shelf_life))
     food_balance = pd.DataFrame(supply_initial, index=shelf_life, columns=['Balance'])
     food_balance.index.name = 'Shelf_life'
 
@@ -96,7 +97,7 @@ if __name__ == '__main__':
         waste_percentage = (waste / total_supply) * 100
         print('------------------------------------------------')
         print('Current percentage of food waste: {:.2f}%'.format(waste_percentage))
-        food_balance['Balance'] = [0]+food_balance['New_balance'].to_list()[0:3]
+        food_balance['Balance'] = [0]+food_balance['New_balance'].to_list()[0:len(shelf_life)-1]
         food_balance[['New_balance', 'Daily_demand']] = 0
 
         print('------------------------------------------------')

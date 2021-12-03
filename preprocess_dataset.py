@@ -10,18 +10,15 @@ the javascript inside the HTML is beyond our current programming technique. Inst
 into a text file and parse it line by line to get the addresses we need.
 
 Source:
-Feeding America
+Food bank address in Feeding America
 https://www.feedingamerica.org/find-your-local-foodbank)
+Zip code with latitude and logitude
 https://www.listendata.com/2020/11/zip-code-to-latitude-and-longitude.html
 
 """
 
 
-import csv
 import pandas as pd
-import matplotlib.pyplot as plt
-import networkx as nx
-from geopy.distance import geodesic
 
 
 def get_address(filename: str) -> pd.DataFrame:
@@ -106,90 +103,22 @@ if __name__ == '__main__':
            'Total Child Population',
            '[Revised Projections – March 2021]\n2021 Child Food Insecurity  %',
            '[Revised Projections – March 2021]\n2021 Child Food Insecurity #']
-    foodbank = pd.read_excel('Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
-    address = get_address('AllFoodBank.txt')
+    foodbank = pd.read_excel('data/Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
+    address = get_address('data/AllFoodBank.txt')
     foodbank_with_address = parse_address_and_combine(address,foodbank)
-    # foodbank_with_address.to_csv('foodbank_with_address.csv', index=True)
-    # output to csv to make sure the information in dataset is what we expected
-    # we could remove it once we finish this part
 
 
-#combining the zip codes to lat long values
+    # combining the zip codes to lat long values
 
-data = pd.read_csv('foodbank_with_address.csv')
-zip = pd.read_csv('zip.csv')
-data.head()
-combine = pd.merge(data,zip,how='right',left_on='zip_code',right_on='postal code')
-df = combine.dropna()
-df.head()
-req_cols = df[['Food Bank','Total Population','Revised Projections March 2021 Food Insecurity%','Revised Projections March 2021 Food Insecurity#'
-              ,'address_1','postal code','state_y','statecode','latitude','longitude']]
-zip_data=req_cols.reset_index()
-zip_data.head()
-zip_data.set_index('Food Bank',inplace=True)
-# zip_data
+    zip = pd.read_csv('data/zip.csv',dtype={'postal code': 'object'})
+    # zip.astype({'postal code': 'object'})
+    combine = pd.merge(foodbank_with_address,zip,how='right',left_on='zip_code',right_on='postal code')
+    df = combine.dropna()
+    req_cols = df[['Food Bank','Total Population','Revised Projections March 2021 Food Insecurity%','Revised Projections March 2021 Food Insecurity#'
+                  ,'address_1','postal code','state_y','statecode','latitude','longitude']]
+    zip_data = col.reset_index()
+    zip_data = df[col[1:]]
+    zip_data.set_index('Food Bank',inplace=True)
+    # zip_data
+    zip_data.to_csv('lat_long.csv', index=True)
 
-zip_data.to_csv('lat_long.csv', index=True)
-zd = pd.read_csv('lat_long.csv')
-# print(zd.head())
-
-
-
-
-
-
-
-# data = pd.read_csv('lat_long.csv')
-# def calc_distance(data, a, b):
-#     """
-#     calculates distance between any 2 foodbanks
-#     :param data: dataframe
-#     :param a: foodbank 1
-#     :param b: foodbank 2
-#     :return: distance in kms
-#     """
-#     lon = data['longitude']
-#     lat = data['latitude']
-#     lat = lat.to_list()
-#     lon = lon.to_list()
-#     food_bank = data['Food Bank']
-#     food_bank = food_bank.to_list()
-#     loc1 = food_bank.index(a)
-#     loc2 = food_bank.index(b)
-#
-#     return (geodesic([lat[loc1], lon[loc1]], [lat[loc2], lon[loc2]]).km)
-
-
-# distance = calc_distance(data, 'Feeding the Gulf Coast', 'Food Bank of Alaska, Inc.')
-# print(distance)
-
-# graph=nx.Graph()
-# def add_foodbank_node(graph,foodbank_node:str):
-#     f1 = csv.reader(open("lat_long.csv"))
-#     for i in f1:
-#         lat = i[10]
-#         lon = i[9]
-#         foodbank_node = i[0]
-#         pop_attr = i[2]
-#         graph.add_node(foodbank_node,lat=lat,lon=lon,population=pop_attr)
-# #         nx.draw_networkx(graph)
-# #G.number_of_nodes()
-# add_foodbank_node(graph,'Arkansas Foodbank')
-# print(graph.nodes['Arkansas Foodbank'])
-#
-# f1 = pd.read_csv("lat_long.csv")
-# graph = nx.from_pandas_edgelist(f1,source = 'statecode', target='Food Bank')
-# type(graph)
-# print(nx.info(graph))
-# # graph.edges()
-#
-# plt.figure(figsize=(50,200))
-# f = nx.draw(graph,with_labels=True,node_size= 500,
-#         node_color='#82CAFF',
-#         font_size=16,
-#         font_weight ='bold',
-#         font_color='black',
-#         edge_color = ('#E55451','#810541','#00FF00'),
-#         node_shape='o',
-#        width=2)
-# plt.savefig("figure.png")
