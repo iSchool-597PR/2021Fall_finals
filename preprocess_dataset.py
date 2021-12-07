@@ -3,9 +3,9 @@ This is pre-process stage for our dataset.
 
 The dataset we get from Feeding America only contains names of food banks but no addresses or any other
 information regarding positions. So we first get addresses from their website and combine them into the
-original dataset. Secondly, we add match the zip code from another dataset to get their latitude and longitude.
+original dataset. Secondly, we match the zip code from external dataset to get their latitude and longitude.
 
-We planned to use "requests" and "lxml" package to parse the website content at beginning. However,
+We planned to use "requests" and "lxml" package to parse the website content at the beginning. However,
 the javascript inside the HTML is beyond our current programming technique. Instead, we copy the content
 into a text file and parse it line by line to get the addresses we need.
 
@@ -97,28 +97,23 @@ def parse_address_and_combine(df_address: pd.DataFrame, df_foodbank: pd.DataFram
     return combined
 
 if __name__ == '__main__':
-    col = ['Food Bank','ID', 'Total Population',
+    col = ['Food Bank', 'Total Population',
            '[Revised Projections – March 2021]\n2021 Food Insecurity  %',
-           '[Revised Projections – March 2021]\n2021 Food Insecurity #',
-           'Total Child Population',
-           '[Revised Projections – March 2021]\n2021 Child Food Insecurity  %',
-           '[Revised Projections – March 2021]\n2021 Child Food Insecurity #']
+           '[Revised Projections – March 2021]\n2021 Food Insecurity #']
+           # 'Total Child Population',
+           # '[Revised Projections – March 2021]\n2021 Child Food Insecurity  %',
+           # '[Revised Projections – March 2021]\n2021 Child Food Insecurity #']
     foodbank = pd.read_excel('data/Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
     address = get_address('data/AllFoodBank.txt')
     foodbank_with_address = parse_address_and_combine(address,foodbank)
 
 
     # combining the zip codes to lat long values
-
+    col2 = []
     zip = pd.read_csv('data/zip.csv',dtype={'postal code': 'object'})
     # zip.astype({'postal code': 'object'})
     combine = pd.merge(foodbank_with_address,zip,how='right',left_on='zip_code',right_on='postal code')
-    df = combine.dropna()
-    req_cols = df[['Food Bank','Total Population','Revised Projections March 2021 Food Insecurity%','Revised Projections March 2021 Food Insecurity#'
-                  ,'address_1','postal code','state_y','statecode','latitude','longitude']]
-    zip_data = col.reset_index()
-    zip_data = df[col[1:]]
-    zip_data.set_index('Food Bank',inplace=True)
-    # zip_data
-    zip_data.to_csv('lat_long.csv', index=True)
+    col2 = ['state_x', 'zip_code', 'country code', 'Country']
+    foodbank_with_latlon = combine.dropna().drop(columns = col2)
+    foodbank_with_latlon.to_csv('foodbank_with_latlon.csv', index=True)
 
