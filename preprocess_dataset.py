@@ -94,26 +94,25 @@ def parse_address_and_combine(df_address: pd.DataFrame, df_foodbank: pd.DataFram
                                                                      'Norfolk', 'VA', '23504']
     combined.loc['Westmoreland County Food Bank', col_process] = ['100 Devonshire Drive', 'Delmont', 'PA', '15626']
 
-    return combined
+    return combined.reset_index()
 
 if __name__ == '__main__':
     col = ['Food Bank', 'Total Population',
            '[Revised Projections – March 2021]\n2021 Food Insecurity  %',
            '[Revised Projections – March 2021]\n2021 Food Insecurity #']
-           # 'Total Child Population',
-           # '[Revised Projections – March 2021]\n2021 Child Food Insecurity  %',
-           # '[Revised Projections – March 2021]\n2021 Child Food Insecurity #']
+
     foodbank = pd.read_excel('data/Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
     address = get_address('data/AllFoodBank.txt')
     foodbank_with_address = parse_address_and_combine(address,foodbank)
 
-
-    # combining the zip codes to lat long values
-    col2 = []
-    zip = pd.read_csv('data/zip.csv',dtype={'postal code': 'object'})
-    # zip.astype({'postal code': 'object'})
-    combine = pd.merge(foodbank_with_address,zip,how='right',left_on='zip_code',right_on='postal code')
-    col2 = ['state_x', 'zip_code', 'country code', 'Country']
-    foodbank_with_latlon = combine.dropna().drop(columns = col2)
+    # combining lat long values by zip codes
+    df_zipcode = pd.read_csv('data/zip.csv')
+    # change data type for merge
+    foodbank_with_address['zip_code'] = foodbank_with_address['zip_code'].astype('float64')
+    combine = pd.merge(foodbank_with_address.reset_index(),df_zipcode,
+                       how='left',left_on='zip_code',right_on='postal code')
+    # print(combine.set_index('Food Bank').columns)
+    col2 = ['state_x', 'postal code', 'country code', 'Country']
+    foodbank_with_latlon = combine.drop(columns=col2).dropna().set_index('Food Bank')
     foodbank_with_latlon.to_csv('foodbank_with_latlon.csv', index=True)
 

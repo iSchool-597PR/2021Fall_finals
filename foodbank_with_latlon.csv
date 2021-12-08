@@ -1,188 +1,200 @@
-,Total Population,"[Revised Projections – March 2021]
+Food Bank,index,Total Population,"[Revised Projections – March 2021]
 2021 Food Insecurity  %","[Revised Projections – March 2021]
-2021 Food Insecurity #",address_1,city,postal code,state_y,statecode,latitude,longitude
-12,737068.0,0.129,95420.0,2192 Viking Drive,Anchorage,99501,Alaska,AK,61.2116,-149.8761
-621,1458585.0,0.157,229190.0,107 Walter Davis Drive,Birmingham,35209,Alabama,AL,33.4653,-86.8082
-749,1089725.0,0.157,171440.0,2000 B. Vernon Ave.|P.O. Box 18607,Huntsville,35805,Alabama,AL,34.7059,-86.6165
-811,2292020.0,0.164,376740.0,5248 Mobile South Street,Theodore,36582,Alabama,AL,30.5444,-88.1807
-878,1481529.0,0.172,254180.0,521 Trade Center Street,Montgomery,36108,Alabama,AL,32.3417,-86.3529
-1212,500090.0,0.193,96350.0,3414 One Place|P.O. Box 2097,Jonesboro,72402,Arkansas,AR,35.8088,-90.6529
-1472,251209.0,0.183,46080.0,3120 East 19th Street|P.O. Box 707,Texarkana,71854,Arkansas,AR,33.431,-93.8765
-1616,1442506.0,0.177,254610.0,4301 W 65th St,Little Rock,72209,Arkansas,AR,34.6725,-92.3529
-1682,308042.0,0.193,59470.0,1617 South Zero Street|PO Box 180070,Ft. Smith,72918,Arkansas,AR,35.3859,-94.3985
-1746,542224.0,0.145,78800.0,1378 June Self Drive,Bethel Heights,72764,Arkansas,AR,36.1716,-94.0428
-1916,5519420.0,0.146,804030.0,2831 N. 31st Avenue,Phoenix,85009,Arizona,AZ,33.4564,-112.1284
-1998,4995930.0,0.143,715480.0,245 South Nina Drive,Mesa,85210,Arizona,AZ,33.3887,-111.8428
-2191,1247072.0,0.155,193290.0,3003 South Country Club Road,Tucson,85713,Arizona,AZ,32.1941,-110.9739
-2313,230261.0,0.178,41040.0,2404 E 24th St. Ste. A,Yuma,85365,Arizona,AZ,32.7093,-114.4905
-2364,1656754.0,0.109,180930.0,7900 Edgewater Drive|P.O. Box 2599,Oakland,94621,California,CA,37.7589,-122.1853
-2463,4274041.0,0.124,531740.0,4010 Nelson Ave,Concord,94520,California,CA,37.9823,-122.0362
-2603,2640184.0,0.154,407630.0,4010 E. Amendola Ave.,Fresno,93725,California,CA,36.6207,-119.7308
-2876,10081570.0,0.144,1453170.0,1734 E. 41st Street,Los Angeles,90058,California,CA,33.9994,-118.2133
-3457,433410.0,0.113,49070.0,"815 W. Market Street, Suite 5",Salinas,93901,California,CA,36.6677,-121.6596
-3546,3168044.0,0.107,338120.0,8014 Marine Way,Irvine,92618,California,CA,33.7074,-117.7054
-3674,673319.0,0.103,69160.0,8284 Industrial Ave,Roseville,95678,California,CA,38.7609,-121.2867
-3711,4560470.0,0.117,534440.0,83-775 Citrus Ave|P.O. Box 10080,Indio,92202,California,CA,33.7529,-116.0556
-3744,4560470.0,0.117,534440.0,2950 - A Jefferson Street,Riverside,92504,California,CA,33.9315,-117.4119
-4183,3496774.0,0.118,412510.0,"9477 Waples Street, Suite 100",San Diego,92121,California,CA,32.8919,-117.2035
-4247,1134904.0,0.12,135700.0,900 Pennsylvania Avenue,San Francisco,94107,California,CA,37.7621,-122.3971
-4421,726994.0,0.108,78800.0,4554 Hollister Avenue,Santa Barbara,93110,California,CA,34.4418,-119.7647
-4520,2694893.0,0.09,241940.0,750 Curtner Avenue,San Jose,95125,California,CA,37.296,-121.8939
-4578,334338.0,0.111,37100.0,800 Ohlone Parkway,Watsonville,95076,California,CA,36.9102,-121.7569
-4674,814626.0,0.129,104720.0,3990 Brickway Blvd,Santa Rosa,95403,California,CA,38.4822,-122.7473
-4860,847263.0,0.096,81530.0,4156 Southbank Road,Oxnard,93036,California,CA,34.2351,-119.182
-4983,390396.0,0.109,42380.0,650 S. Taylor Ave.,Louisville,80027,Colorado,CO,39.9789,-105.1456
-5078,3945294.0,0.116,457580.0,10700 E. 45th Ave,Denver,80239,Colorado,CO,39.7878,-104.8288
-5170,1211137.0,0.134,162630.0,2605 Preamble Point,Colorado Springs,80915,Colorado,CO,38.8558,-104.7134
-5327,344786.0,0.117,40320.0,5706 Wright Drive,Loveland,80538,Colorado,CO,40.4262,-105.09
-5527,305345.0,0.108,33010.0,1108 H Street,Greeley,80631,Colorado,CO,40.385,-104.6806
-5997,4739064.0,0.095,448500.0,4900 Puerto Rico Ave NE,Washington,20017,District of Columbia,DC,38.9367,-76.994
-6281,957248.0,0.119,114300.0,222 Lake Drive,Newark,19702,Delaware,DE,39.6349,-75.6993
-6465,6166458.0,0.129,795410.0,2501 SW 32 Terrace,Pembroke Park,33023,Florida,FL,25.9894,-80.2153
-6685,1713944.0,0.135,231800.0,"1116 Edgewood Avenue North, Units D and E",Jacksonville,32254,Florida,FL,30.3415,-81.7358
-6824,4569071.0,0.141,645870.0,"4702 Transport Dr., Bldg. 6",Tampa,33605,Florida,FL,27.9671,-82.4334
-6951,1344236.0,0.13,175280.0,3760 Fowler St.,Ft. Myers,33901,Florida,FL,26.6204,-81.8725
-7006,520566.0,0.15,77960.0,4446 Entrepot Blvd,Tallahassee,32310,Florida,FL,30.3991,-84.3298
-7300,4477158.0,0.142,635280.0,411 Mercy Drive,Orlando,32805,Florida,FL,28.5302,-81.4045
-7651,667145.0,0.132,87970.0,401 Angle Rd.,Ft. Pierce,34947,Florida,FL,27.4493,-80.3592
-7691,456399.0,0.13,59510.0,8171 Blaikie Ct.,Sarasota,34240,Florida,FL,27.339,-82.3473
-7882,708424.0,0.156,110560.0,4490 Ocmulgee East Boulevard|PO Box 5024,Macon,31217,Georgia,GA,32.8118,-83.565
-7951,902494.0,0.149,134220.0,2501 East President Street,Savannah,31404,Georgia,GA,32.0543,-81.0492
-7985,550707.0,0.145,79950.0,861 Newton Bridge Road|P.O. Box 48857,Athens,30604,Georgia,GA,33.9443,-83.3891
-8262,6105046.0,0.117,715840.0,3400 N Desert Dr,Atlanta,30344,Georgia,GA,33.6919,-84.448
-8468,614713.0,0.172,105560.0,1411 Harbin Circle,Valdosta,31601,Georgia,GA,30.7539,-83.3321
-8532,564778.0,0.17,95980.0,6744 Flat Rock Road,Midland,31820,Georgia,GA,32.5616,-84.8559
-8608,831422.0,0.139,115340.0,3310 Commerce Drive,Augusta,30909,Georgia,GA,33.4717,-82.0834
-8849,1422094.0,0.152,215520.0,2611 Kilihau St,Honolulu,96819,Hawaii,HI,21.3488,-157.8759
-8973,377054.0,0.094,35450.0,1605 Lafayette Steet|PO Box 2397,Waterloo,50703,Iowa,IA,42.5149,-92.3269
-9469,475379.0,0.089,42510.0,1515 Hawkeye Drive|PO Box 490,Hiawatha,52233,Iowa,IA,42.0425,-91.677
-9678,1510703.0,0.094,142130.0,2220 E. 17th Street|P.O. Box 1517,Des Moines,50316,Iowa,IA,41.6092,-93.6
-9782,1037538.0,0.112,115750.0,4010 Kimmel Drive,Davenport,52802,Iowa,IA,41.5164,-90.6141
-9974,1483225.0,0.115,169930.0,3630 E Commercial Ct,Meridian,83642,Idaho,ID,43.615,-116.3975
-10378,1109233.0,0.119,131970.0,2405 North Shore Drive,Urbana,61802,Illinois,IL,40.0746,-88.1691
-10605,5198275.0,0.118,613360.0,4100 West Ann Lurie Place,Chicago,60632,Illinois,IL,41.8093,-87.7052
-11010,3985135.0,0.086,344270.0,273 Dearborn Court,Geneva,60134,Illinois,IL,41.886,-88.311
-11603,780891.0,0.128,99570.0,1937 E. Cook St.,Springfield,62703,Illinois,IL,39.7622,-89.6275
-11907,670130.0,0.126,84730.0,999 East Tillman Road|P. O. Box 10967,Fort Wayne,46855,Indiana,IN,41.0938,-85.0707
-12050,448350.0,0.159,71280.0,6621 N. Old SR 3,Muncie,47303,Indiana,IN,40.218,-85.379
-12341,654343.0,0.134,87430.0,6490 Broadway,Merrillville,46410,Indiana,IN,41.4957,-87.3509
-12418,2286146.0,0.131,298780.0,3737 Waldemere Ave.,Indianapolis,46241,Indiana,IN,39.7096,-86.2614
-12469,257665.0,0.15,38750.0,2333 West Industrial Park Drive|PO Box 697,Bloomington,47404,Indiana,IN,39.195,-86.5757
-12618,733376.0,0.138,101050.0,702 South Chapin Street,South Bend,46601,Indiana,IN,41.6727,-86.2535
-12690,590962.0,0.139,82250.0,1204 Greenbush Street,Lafayette,47904,Indiana,IN,40.4276,-86.8735
-12721,858132.0,0.141,120920.0,2504 Lynch Road,Evansville,47711,Indiana,IN,38.0617,-87.5548
-12759,256132.0,0.16,40980.0,430 N 14th 1/2 St,Terre Haute,47807,Indiana,IN,39.471,-87.4009
-13429,1495571.0,0.139,207310.0,1919 E. Douglas,Wichita,67211,Kansas,KS,37.6662,-97.3165
-13782,1531884.0,0.174,266180.0,1685 Jaggie Fox Way,Lexington,40511,Kentucky,KY,38.0932,-84.5007
-13914,1082878.0,0.154,166660.0,"313 Peterson Dr.,|PO Box 821",Elizabethtown,42701,Kentucky,KY,37.6848,-85.8784
-14025,1286886.0,0.125,160660.0,5803 Fern Valley Road|PO Box 35458,Louisville,40228,Kentucky,KY,38.1442,-85.6265
-14617,476975.0,0.18,85730.0,2307 Texas Avenue,Shreveport,71103,Louisiana,LA,32.4945,-93.7727
-14724,875626.0,0.148,129250.0,10600 S. Choctaw Drive|Post Office Box 45830,Baton Rouge,70815,Louisiana,LA,30.4558,-91.0596
-14833,2569799.0,0.174,446960.0,700 Edwards Avenue,New Orleans,70123,Louisiana,LA,29.9511,-90.206
-14987,351166.0,0.189,66260.0,4600 Central Ave|PO Box 5048,Monroe,71211,Louisiana,LA,32.4908,-92.1594
-15022,390796.0,0.178,69600.0,3223 Baldwin Avenue,Alexandria,71301,Louisiana,LA,31.2885,-92.4633
-16035,4066648.0,0.128,521800.0,2200 Halethorpe Farms Road,Baltimore,21227,Maryland,MD,39.2309,-76.6969
-17150,864620.0,0.136,117680.0,5451 Wayne Road,Battle Creek,49037,Michigan,MI,42.3453,-85.2178
-17277,1403218.0,0.153,214970.0,2300 Lapeer Road,Flint,48503,Michigan,MI,43.0128,-83.6914
-17392,689027.0,0.14,96260.0,5600 Food Ct,Bath,48906,Michigan,MI,42.7635,-84.558
-17503,2421110.0,0.128,310150.0,864 West River Center Drive NE,Comstock Park,49321,Michigan,MI,43.0578,-85.6845
-17811,3880809.0,0.158,612350.0,21800 Greenfield Road,Oak Park,48237,Michigan,MI,42.4662,-83.184
-18064,367000.0,0.116,42450.0,1 Carrot Way|P.O. Box 131037,Ann Arbor,48105,Michigan,MI,42.3042,-83.7068
-18126,4220290.0,0.154,650630.0,2131 Beaufait Street,Detroit,48207,Michigan,MI,42.3524,-83.0271
-18506,4781649.0,0.085,407170.0,7101 Winnetka Avenue N.,Brooklyn Park,55428,Minnesota,MN,45.0632,-93.3811
-18584,208929.0,0.114,23780.0,2222 Cromell Drive|PO Box 5130,Grand Rapids,55744,Minnesota,MN,47.2348,-93.5115
-18793,657156.0,0.087,57000.0,"131 35th Street, SE",Rochester,55904,Minnesota,MN,44.0105,-92.3973
-18856,350545.0,0.101,35510.0,1011 11th Ave. NE,East Grand Forks,56721,Minnesota,MN,47.9318,-97.0213
-18998,330920.0,0.116,38320.0,4503 Airpark Boulevard,Duluth,55811,Minnesota,MN,46.8147,-92.1998
-19240,790787.0,0.142,112520.0,"2101 Vandiver Drive, Suite B",Columbia,65202,Missouri,MO,38.995,-92.3112
-19264,348562.0,0.138,48030.0,915 Douglas,St. Joseph,64505,Missouri,MO,39.7965,-94.8443
-19525,1125355.0,0.159,179410.0,2810 N. Cedarbrook Ave,Springfield,65803,Missouri,MO,37.2593,-93.2912
-19640,2599735.0,0.124,323660.0,3801 Topping Avenue,Kansas City,64129,Missouri,MO,39.0401,-94.4951
-20098,3145218.0,0.123,385940.0,70 Corporate Woods Drive,Bridgeton,63044,Missouri,MO,38.7506,-90.4161
-20161,367623.0,0.173,63630.0,600 State Highway H|PO Box 190,Sikeston,63801,Missouri,MO,36.8911,-89.582
-20485,1779960.0,0.189,336960.0,440 W. Beatty Street|PO Box 411 (39205),Jackson,39201,Mississippi,MS,32.2935,-90.1867
-21084,1050649.0,0.11,115160.0,5625 Expressway,Missoula,59808,Montana,MT,46.9776,-114.0619
-21368,743615.0,0.16,119160.0,627 Swannanoa River Rd,Asheville,28805,North Carolina,NC,35.6004,-82.4918
-21499,807456.0,0.179,144390.0,"406 Deep Creek Road, PO Box 2009",Fayetteville,28302,North Carolina,NC,35.0343,-78.9088
-21616,2142158.0,0.156,333980.0,3655 Reed Street,Winston-Salem,27107,North Carolina,NC,36.0403,-80.1933
-21876,3900212.0,0.131,511640.0,500 B Spratt St.,Charlotte,28206,North Carolina,NC,35.2522,-80.8265
-22038,306310.0,0.157,48010.0,109 Tidewater Way|P. O. Box 1704,Elizabeth City,27906,North Carolina,NC,36.2854,-76.2133
-22244,4040139.0,0.146,588240.0,1924 Capital Boulevard,Raleigh,27604,North Carolina,NC,35.8334,-78.5799
-22259,1940649.0,0.126,244820.0,1001 Blair Drive,Raleigh,27620,North Carolina,NC,35.7977,-78.6253
-22423,820163.0,0.076,62340.0,1720 3rd Avenue North,Fargo,58102,North Dakota,ND,46.9209,-96.8318
-22951,1841518.0,0.112,206940.0,10525 J Street,Omaha,68127,Nebraska,NE,41.2074,-96.0612
-23125,470798.0,0.122,57510.0,"4840 Doris Bair Circle, Suite A",Lincoln,68504,Nebraska,NE,40.8392,-96.6532
-24387,2092454.0,0.155,323340.0,5840 Office Blvd NE,Albuquerque,87109,New Mexico,NM,35.1506,-106.569
-24863,2232533.0,0.163,363750.0,4190 N. Pecos Rd.,Las Vegas,89115,Nevada,NV,36.2158,-115.0671
-25070,2846201.0,0.111,317050.0,965 Albany Shaker Rd.,Latham,12110,New York,NY,42.7462,-73.763
-25184,8419316.0,0.171,1437320.0,355 Food Center Dr.,New York,10474,New York,NY,40.8139,-73.8841
-25320,543753.0,0.134,72650.0,388 Upper Oakwood Avenue,Elmira,14903,New York,NY,42.1198,-76.8877
-25534,1335792.0,0.131,174630.0,91 Holt Street,Buffalo,14206,New York,NY,42.8811,-78.8104
-25899,1252068.0,0.122,152730.0,1999 Mt. Read Boulevard,Rochester,14615,New York,NY,43.2058,-77.6521
-26046,8419316.0,0.171,1437320.0,"6 East 32nd Street, 5th Fl.",New York,10016,New York,NY,40.7443,-73.9781
-26298,1365958.0,0.13,178160.0,7066 Interstate Island Road,Syracuse,13209,New York,NY,43.0847,-76.2405
-26810,2840341.0,0.069,196360.0,126 Spagnoli Road,Melville,11747,New York,NY,40.7946,-73.403
-26836,2840341.0,0.069,196360.0,10 Davids Drive,Hauppauge,11788,New York,NY,40.8231,-73.1958
-27113,968890.0,0.09,87160.0,200 Clearbrook Road,Elmsford,10523,New York,NY,41.0572,-73.8136
-27219,504131.0,0.127,63860.0,1380 East Kibby Street|P.O. Box 1566,Lima,45804,Ohio,OH,40.7275,-84.089
-27330,807128.0,0.118,95040.0,5901 Dixie Highway,Fairfield,45014,Ohio,OH,39.3266,-84.5479
-27374,218887.0,0.145,31660.0,20 N Murray,Springfield,45503,Ohio,OH,39.9528,-83.7804
-27457,1843714.0,0.148,273100.0,15500 South Waterloo Road,Cleveland,44110,Ohio,OH,41.5636,-81.5733
-27579,2585488.0,0.138,355570.0,3960 Brookham Dr.,Grove City,43123,Ohio,OH,39.8814,-83.0839
-27696,1818085.0,0.139,252740.0,1141 Central Parkway,Cincinnati,45202,Ohio,OH,39.1072,-84.502
-27820,304094.0,0.175,53200.0,1005 CIC Drive,Logan,43138,Ohio,OH,39.5372,-82.4126
-27951,482610.0,0.14,67620.0,5510 Baumhart Rd,Lorain,44053,Ohio,OH,41.432,-82.2038
-27967,805350.0,0.145,117170.0,24 East Woodruff Avenue,Toledo,43604,Ohio,OH,41.6614,-83.5249
-28024,533518.0,0.161,85710.0,2805 Salt Springs Road,Youngstown,44509,Ohio,OH,41.105,-80.6945
-28131,739265.0,0.147,109030.0,56 Armor Place,Dayton,45417,Ohio,OH,39.7528,-84.247
-28431,1533896.0,0.133,204150.0,350 Opportunity Parkway,Akron,44307,Ohio,OH,41.0695,-81.5488
-29136,2389997.0,0.154,368760.0,3355 S. Purdue|PO Box 270968,Oklahoma City,73179,Oklahoma,OK,35.4242,-97.6547
-29304,1542873.0,0.168,259320.0,1304 N. Kenosha Ave.,Tulsa,74106,Oklahoma,OK,36.1883,-95.986
-29727,4603055.0,0.125,573310.0,7900 NE 33rd Drive,Portland,97211,Oregon,OR,45.5653,-122.6448
-29925,2394856.0,0.125,298490.0,1 North Linden Street,Duquesne,15110,Pennsylvania,PA,40.3704,-79.8522
-30144,560699.0,0.114,63970.0,117 Morgan Drive,Reading,19608,Pennsylvania,PA,40.3113,-76.0345
-30625,3037482.0,0.111,337110.0,3908 Corey Road,Harrisburg,17109,Pennsylvania,PA,40.291,-76.8203
-30731,697208.0,0.14,97960.0,1507 Grimm Drive,Erie,16501,Pennsylvania,PA,42.126,-80.086
-31198,596612.0,0.139,82950.0,185 Research Drive,Pittston,18640,Pennsylvania,PA,41.3175,-75.7885
-31280,111518.0,0.143,15940.0,109 S Sharpsville Avenue|Suite A,Sharon,16146,Pennsylvania,PA,41.2316,-80.4993
-31439,1006655.0,0.111,111430.0,6969 Silver Crest Road,Nazareth,18064,Pennsylvania,PA,40.745,-75.3199
-31536,5420413.0,0.117,636880.0,3616 S. Galloway Street,Philadelphia,19148,Pennsylvania,PA,39.9207,-75.1595
-31926,352590.0,0.117,41140.0,100 Devonshire Drive,Delmont,15626,Pennsylvania,PA,40.4139,-79.5764
-32229,1471857.0,0.11,161430.0,2864 Azalea Drive,Charleston,29405,South Carolina,SC,32.853,-79.9913
-32551,2054603.0,0.115,235860.0,2220 Shop Road|P.O. Box 451,Columbia,29201,South Carolina,SC,34.0004,-81.0334
-32943,870638.0,0.11,96070.0,4701 N Westport Ave,Sioux Falls,57107,South Dakota,SD,43.5566,-96.8028
-33073,1304063.0,0.149,194480.0,136 Harvest Lane,Maryville,37801,Tennessee,TN,35.6884,-84.0769
-33203,2917667.0,0.131,381980.0,331 Great Circle Road,Nashville,37228,Tennessee,TN,36.1901,-86.8053
-33336,1092372.0,0.148,161770.0,2009 Curtain Pole Road,Chattanooga,37406,Tennessee,TN,35.0614,-85.2478
-33680,2056318.0,0.156,320400.0,3865 S Perkins Rd,Memphis,38118,Tennessee,TN,35.0514,-89.9265
-33749,508884.0,0.171,86780.0,1020 Jericho Drive,Kingsport,37663,Tennessee,TN,36.4715,-82.4834
-33973,2767351.0,0.163,449890.0,5200 Enrique M Barrera Pkwy,San Antonio,78227,Texas,TX,29.4027,-98.6433
-34237,5209472.0,0.154,801860.0,3677 Mapleshade Lane,Plano,75075,Texas,TX,33.025,-96.7397
-34558,482450.0,0.164,78900.0,411 S. Pagewood Ave.,Odessa,79761,Texas,TX,31.8579,-102.3523
-34615,842691.0,0.179,150700.0,9541 Plaza Circle,El Paso,79927,Texas,TX,31.6446,-106.2737
-34976,7334632.0,0.164,1199600.0,535 Portwall Street,Houston,77029,Texas,TX,29.763,-95.2567
-35242,1298430.0,0.214,278140.0,724 N. Cage Blvd.,Pharr,78577,Texas,TX,26.1771,-98.187
-35353,525496.0,0.206,108310.0,3845 Martin Luther King Parkway|P O Box 21012,Beaumont,77705,Texas,TX,30.0211,-94.1157
-35528,473123.0,0.174,82300.0,5605 MLK Boulevard,Lubbock,79404,Texas,TX,33.526,-101.8333
-35756,589457.0,0.19,111730.0,826 Krill St.,Corpus Christi,78408,Texas,TX,27.7945,-97.4381
-35853,475188.0,0.161,76360.0,815 S. Ross|PO Box 31803,Amarillo,79120,Texas,TX,35.1964,-101.8034
-35970,1278507.0,0.188,240850.0,3201 Robertson Road,Tyler,75701,Texas,TX,32.3254,-95.2922
-36054,3490822.0,0.152,531760.0,2600 Cullen,Ft. Worth,76107,Texas,TX,32.7392,-97.3852
-36119,298880.0,0.179,53350.0,5505 N. First,Abilene,79603,Texas,TX,32.4679,-99.7619
-36202,3054012.0,0.154,469120.0,6500 Metropolis Drive,Austin,78744,Texas,TX,30.1876,-97.7472
-36279,303970.0,0.174,52770.0,3809 E. Rio Grande|P.O.Box 5085,Victoria,77901,Texas,TX,28.809,-96.9993
-36316,478379.0,0.208,99310.0,2121 Jefferson St.,Laredo,78040,Texas,TX,27.5155,-99.4986
-36347,225644.0,0.192,43430.0,1230 Midwestern Parkway|PO Box 623,Wichita Falls,76307,Texas,TX,33.9137,-98.4934
-36606,3096848.0,0.121,373400.0,3150 South 900 West,Salt Lake City,84119,Utah,UT,40.6916,-112.0011
-36897,1599930.0,0.095,151430.0,96 Laurel Hill Road|P.O. Box 937,Verona,24482,Virginia,VA,38.2037,-79.0059
-37660,400848.0,0.078,31420.0,3631 Lee Hill Drive|PO Box 1006,Fredericksburg,22408,Virginia,VA,38.2481,-77.4681
-37807,537162.0,0.115,61810.0,2401 Aluminum Avenue,Hampton,23661,Virginia,VA,37.0074,-76.3801
-37854,1238563.0,0.106,131220.0,800 Tidewater Drive|PO Box 1940,Norfolk,23504,Virginia,VA,36.8586,-76.2686
-37892,1548043.0,0.107,165570.0,1415 Rhoadmiller Street,Richmond,23220,Virginia,VA,37.5498,-77.4588
-37955,1161499.0,0.14,162360.0,1025 Electric Road,Salem,24153,Virginia,VA,37.2853,-80.0692
-38520,5317142.0,0.112,594150.0,815 South 96th Street,Seattle,98108,Washington,WA,47.5413,-122.3129
-38874,1848238.0,0.132,243200.0,1234 E. Front Avenue,Spokane,99202,Washington,WA,47.6547,-117.381
-39179,1277333.0,0.098,125370.0,2802 Dairy Drive,Madison,53718,Wisconsin,WI,43.0984,-89.2734
-39494,3856532.0,0.104,402610.0,1700 W. Fond Du Lac Avenue,Milwaukee,53205,Wisconsin,WI,43.0528,-87.9353
-39964,1520939.0,0.138,209710.0,484 Enterprise Drive,Gassaway,26624,West Virginia,WV,38.6862,-80.7863
-39981,467106.0,0.166,77560.0,1327 Seventh Avenue,Huntington,25701,West Virginia,WV,38.4097,-82.4423
+2021 Food Insecurity #",address_1,city,zip_code,state_y,statecode,latitude,longitude
+Roadrunner Food Bank,0,2092454,0.155,323340,5840 Office Blvd NE,Albuquerque,87109.0,New Mexico,NM,35.1506,-106.569
+High Plains Food Bank,1,475188,0.161,76360,815 S. Ross|PO Box 31803,Amarillo,79120.0,Texas,TX,35.1964,-101.8034
+"Food Bank of Alaska, Inc.",2,737068,0.129,95420,2192 Viking Drive,Anchorage,99501.0,Alaska,AK,61.2116,-149.8761
+Atlanta Community Food Bank,3,6105046,0.117,715840,3400 N Desert Dr,Atlanta,30344.0,Georgia,GA,33.6919,-84.448
+Golden Harvest Food Bank,4,831422,0.139,115340,3310 Commerce Drive,Augusta,30909.0,Georgia,GA,33.4717,-82.0834
+Central Texas Food Bank,5,3054012,0.154,469120,6500 Metropolis Drive,Austin,78744.0,Texas,TX,30.1876,-97.7472
+Maryland Food Bank,6,4066648,0.128,521800,2200 Halethorpe Farms Road,Baltimore,21227.0,Maryland,MD,39.2309,-76.6969
+Community Food Bank of Central Alabama,7,1458585,0.157,229190,107 Walter Davis Drive,Birmingham,35209.0,Alabama,AL,33.4653,-86.8082
+The Greater Boston Food Bank,8,5199876,0.098,507380,70 South Bay Ave,Boston,2118.0,Massachusetts,MA,42.3362,-71.0729
+Food Bank For New York City,9,8419316,0.171,1437320,355 Food Center Dr.,New York,10474.0,New York,NY,40.8139,-73.8841
+"FeedMore Western New York, Inc.",10,1335792,0.131,174630,91 Holt Street,Buffalo,14206.0,New York,NY,42.8811,-78.8104
+Food Bank of South Jersey,11,1306595,0.115,150710,1501 John Tipton Boulevard,Pennsauken,8110.0,New Jersey,NJ,39.9723,-75.0607
+Second Harvest Food Bank of Metrolina,12,3900212,0.131,511640,500 B Spratt St.,Charlotte,28206.0,North Carolina,NC,35.2522,-80.8265
+Chattanooga Area Food Bank,13,1092372,0.148,161770,2009 Curtain Pole Road,Chattanooga,37406.0,Tennessee,TN,35.0614,-85.2478
+Greater Chicago Food Depository,14,5198275,0.118,613360,4100 West Ann Lurie Place,Chicago,60632.0,Illinois,IL,41.8093,-87.7052
+Freestore Foodbank,15,1818085,0.139,252740,1141 Central Parkway,Cincinnati,45202.0,Ohio,OH,39.1072,-84.502
+"Greater Cleveland Food Bank, Inc.",16,1843714,0.148,273100,15500 South Waterloo Road,Cleveland,44110.0,Ohio,OH,41.5636,-81.5733
+Care and Share Food Bank,17,1211137,0.134,162630,2605 Preamble Point,Colorado Springs,80915.0,Colorado,CO,38.8558,-104.7134
+Harvest Hope Food Bank,18,2054603,0.115,235860,2220 Shop Road|P.O. Box 451,Columbia,29201.0,South Carolina,SC,34.0004,-81.0334
+Mid-Ohio FoodBank,19,2585488,0.138,355570,3960 Brookham Dr.,Grove City,43123.0,Ohio,OH,39.8814,-83.0839
+Food Bank of Contra Costa and Solano,20,4274041,0.124,531740,4010 Nelson Ave,Concord,94520.0,California,CA,37.9823,-122.0362
+Coastal Bend Food Bank,21,589457,0.19,111730,826 Krill St.,Corpus Christi,78408.0,Texas,TX,27.7945,-97.4381
+North Texas Food Bank,22,5209472,0.154,801860,3677 Mapleshade Lane,Plano,75075.0,Texas,TX,33.025,-96.7397
+Food Bank of the Rockies,23,3945294,0.116,457580,10700 E. 45th Ave,Denver,80239.0,Colorado,CO,39.7878,-104.8288
+Food Bank of Iowa,24,1510703,0.094,142130,2220 E. 17th Street|P.O. Box 1517,Des Moines,50316.0,Iowa,IA,41.6092,-93.6
+Gleaners Community Food Bank of Southeastern Michigan,25,4220290,0.154,650630,2131 Beaufait Street,Detroit,48207.0,Michigan,MI,42.3524,-83.0271
+Food Bank of the Southern Tier,26,543753,0.134,72650,388 Upper Oakwood Avenue,Elmira,14903.0,New York,NY,42.1198,-76.8877
+Second Harvest Food Bank of Northwest Pennsylvania,27,697208,0.14,97960,1507 Grimm Drive,Erie,16501.0,Pennsylvania,PA,42.126,-80.086
+Food Bank of Eastern Michigan,28,1403218,0.153,214970,2300 Lapeer Road,Flint,48503.0,Michigan,MI,43.0128,-83.6914
+Tarrant Area Food Bank,29,3490822,0.152,531760,2600 Cullen,Ft. Worth,76107.0,Texas,TX,32.7392,-97.3852
+Mountaineer Food Bank,30,1520939,0.138,209710,484 Enterprise Drive,Gassaway,26624.0,West Virginia,WV,38.6862,-80.7863
+Feeding America West Michigan Food Bank,31,2421110,0.128,310150,864 West River Center Drive NE,Comstock Park,49321.0,Michigan,MI,43.0578,-85.6845
+The Food Bank of Western Massachusetts,32,825905,0.121,99890,97 North Hatfield Road|PO Box 160,Hatfield,1038.0,Massachusetts,MA,42.3844,-72.6167
+"Hawaii Foodbank, Inc.",33,1422094,0.152,215520,2611 Kilihau St,Honolulu,96819.0,Hawaii,HI,21.3488,-157.8759
+Houston Food Bank,34,7334632,0.164,1199600,535 Portwall Street,Houston,77029.0,Texas,TX,29.763,-95.2567
+"Gleaners Food Bank of Indiana, Inc.",35,2286146,0.131,298780,3737 Waldemere Ave.,Indianapolis,46241.0,Indiana,IN,39.7096,-86.2614
+Harvesters - The Community Food Network,36,2599735,0.124,323660,3801 Topping Avenue,Kansas City,64129.0,Missouri,MO,39.0401,-94.4951
+Second Harvest Food Bank of East Tennessee,37,1304063,0.149,194480,136 Harvest Lane,Maryville,37801.0,Tennessee,TN,35.6884,-84.0769
+Regional Food Bank of Northeastern New York,38,2846201,0.111,317050,965 Albany Shaker Rd.,Latham,12110.0,New York,NY,42.7462,-73.763
+Arkansas Foodbank,39,1442506,0.177,254610,4301 W 65th St,Little Rock,72209.0,Arkansas,AR,34.6725,-92.3529
+Los Angeles Regional Food Bank,40,10081570,0.144,1453170,1734 E. 41st Street,Los Angeles,90058.0,California,CA,33.9994,-118.2133
+Dare to Care Food Bank,41,1286886,0.125,160660,5803 Fern Valley Road|PO Box 35458,Louisville,40228.0,Kentucky,KY,38.1442,-85.6265
+South Plains Food Bank,42,473123,0.174,82300,5605 MLK Boulevard,Lubbock,79404.0,Texas,TX,33.526,-101.8333
+Greater Pittsburgh Community Food Bank,43,2394856,0.125,298490,1 North Linden Street,Duquesne,15110.0,Pennsylvania,PA,40.3704,-79.8522
+Mid-South Food Bank,44,2056318,0.156,320400,3865 S Perkins Rd,Memphis,38118.0,Tennessee,TN,35.0514,-89.9265
+Feeding South Florida,45,6166458,0.129,795410,2501 SW 32 Terrace,Pembroke Park,33023.0,Florida,FL,25.9894,-80.2153
+Feeding America Eastern Wisconsin,46,3856532,0.104,402610,1700 W. Fond Du Lac Avenue,Milwaukee,53205.0,Wisconsin,WI,43.0528,-87.9353
+Feeding the Gulf Coast,47,2292020,0.164,376740,5248 Mobile South Street,Theodore,36582.0,Alabama,AL,30.5444,-88.1807
+River Bend Foodbank,48,1037538,0.112,115750,4010 Kimmel Drive,Davenport,52802.0,Iowa,IA,41.5164,-90.6141
+"Montgomery Area Food Bank, Inc.",49,1481529,0.172,254180,521 Trade Center Street,Montgomery,36108.0,Alabama,AL,32.3417,-86.3529
+Second Harvest Food Bank of Middle Tennessee,50,2917667,0.131,381980,331 Great Circle Road,Nashville,37228.0,Tennessee,TN,36.1901,-86.8053
+Connecticut Food Bank,51,2530450,0.134,339410,2 Research Parkway,Wallingford,6492.0,Connecticut,CT,41.46,-72.8222
+Second Harvest Food Bank of Greater New Orleans and Acadiana,52,2569799,0.174,446960,700 Edwards Avenue,New Orleans,70123.0,Louisiana,LA,29.9511,-90.206
+Community Foodbank of New Jersey,53,6353834,0.122,775400,31 Evans Terminal,Hillside,7205.0,New Jersey,NJ,40.6968,-74.2281
+Food Bank of Delaware,54,957248,0.119,114300,222 Lake Drive,Newark,19702.0,Delaware,DE,39.6349,-75.6993
+Foodbank of Southeastern Virginia,55,1238563,0.106,131220,800 Tidewater Drive|PO Box 1940,Norfolk,23504.0,Virginia,VA,36.8586,-76.2686
+Regional Food Bank of Oklahoma,56,2389997,0.154,368760,3355 S. Purdue|PO Box 270968,Oklahoma City,73179.0,Oklahoma,OK,35.4242,-97.6547
+Food Bank for the Heartland,57,1841518,0.112,206940,10525 J Street,Omaha,68127.0,Nebraska,NE,41.2074,-96.0612
+Second Harvest Food Bank of Orange County,58,3168044,0.107,338120,8014 Marine Way,Irvine,92618.0,California,CA,33.7074,-117.7054
+Second Harvest Food Bank of Central Florida,59,4477158,0.142,635280,411 Mercy Drive,Orlando,32805.0,Florida,FL,28.5302,-81.4045
+Food Share of Ventura County,60,847263,0.096,81530,4156 Southbank Road,Oxnard,93036.0,California,CA,34.2351,-119.182
+Oregon Food Bank,61,4603055,0.125,573310,7900 NE 33rd Drive,Portland,97211.0,Oregon,OR,45.5653,-122.6448
+Food Bank of Central and Eastern North Carolina,62,4040139,0.146,588240,1924 Capital Boulevard,Raleigh,27604.0,North Carolina,NC,35.8334,-78.5799
+Feed More,63,1548043,0.107,165570,1415 Rhoadmiller Street,Richmond,23220.0,Virginia,VA,37.5498,-77.4588
+Feeding America Riverside San Bernardino Counties,64,4560470,0.117,534440,2950 - A Jefferson Street,Riverside,92504.0,California,CA,33.9315,-117.4119
+Feeding Southwest Virginia,65,1161499,0.14,162360,1025 Electric Road,Salem,24153.0,Virginia,VA,37.2853,-80.0692
+"Foodlink, Inc.",66,1252068,0.122,152730,1999 Mt. Read Boulevard,Rochester,14615.0,New York,NY,43.2058,-77.6521
+San Antonio Food Bank,67,2767351,0.163,449890,5200 Enrique M Barrera Pkwy,San Antonio,78227.0,Texas,TX,29.4027,-98.6433
+Feeding San Diego,68,3496774,0.118,412510,"9477 Waples Street, Suite 100",San Diego,92121.0,California,CA,32.8919,-117.2035
+SF-Marin Food Bank,69,1134904,0.12,135700,900 Pennsylvania Avenue,San Francisco,94107.0,California,CA,37.7621,-122.3971
+Second Harvest of Silicon Valley,70,2694893,0.09,241940,750 Curtner Avenue,San Jose,95125.0,California,CA,37.296,-121.8939
+"America's Second Harvest of Coastal Georgia, Inc.",71,902494,0.149,134220,2501 East President Street,Savannah,31404.0,Georgia,GA,32.0543,-81.0492
+Food Lifeline,72,5317142,0.112,594150,815 South 96th Street,Seattle,98108.0,Washington,WA,47.5413,-122.3129
+Second Harvest Inland Northwest,74,1848238,0.132,243200,1234 E. Front Avenue,Spokane,99202.0,Washington,WA,47.6547,-117.381
+Central Illinois Foodbank,75,780891,0.128,99570,1937 E. Cook St.,Springfield,62703.0,Illinois,IL,39.7622,-89.6275
+St. Louis Area Foodbank,76,3145218,0.123,385940,70 Corporate Woods Drive,Bridgeton,63044.0,Missouri,MO,38.7506,-90.4161
+Second Harvest Heartland,77,4781649,0.085,407170,7101 Winnetka Avenue N.,Brooklyn Park,55428.0,Minnesota,MN,45.0632,-93.3811
+Central Pennsylvania Food Bank,78,3037482,0.111,337110,3908 Corey Road,Harrisburg,17109.0,Pennsylvania,PA,40.291,-76.8203
+Food Bank of Central New York,79,1365958,0.13,178160,7066 Interstate Island Road,Syracuse,13209.0,New York,NY,43.0847,-76.2405
+Feeding Tampa Bay,80,4569071,0.141,645870,"4702 Transport Dr., Bldg. 6",Tampa,33605.0,Florida,FL,27.9671,-82.4334
+Community Food Bank of Southern Arizona,81,1247072,0.155,193290,3003 South Country Club Road,Tucson,85713.0,Arizona,AZ,32.1941,-110.9739
+Community Food Bank of Eastern Oklahoma,82,1542873,0.168,259320,1304 N. Kenosha Ave.,Tulsa,74106.0,Oklahoma,OK,36.1883,-95.986
+"Blue Ridge Area Food Bank, Inc.",83,1599930,0.095,151430,96 Laurel Hill Road|P.O. Box 937,Verona,24482.0,Virginia,VA,38.2037,-79.0059
+Rhode Island Community Food Bank,84,1057231,0.121,127540,200 Niantic Ave.,Providence,2907.0,Rhode Island,RI,41.7971,-71.4255
+Capital Area Food Bank,85,4739064,0.095,448500,4900 Puerto Rico Ave NE,Washington,20017.0,District of Columbia,DC,38.9367,-76.994
+Second Harvest Food Bank Santa Cruz County,86,334338,0.111,37100,800 Ohlone Parkway,Watsonville,95076.0,California,CA,36.9102,-121.7569
+Second Harvest Food Bank of Northwest North Carolina,87,2142158,0.156,333980,3655 Reed Street,Winston-Salem,27107.0,North Carolina,NC,36.0403,-80.1933
+Food Bank of West Central Texas,88,298880,0.179,53350,5505 N. First,Abilene,79603.0,Texas,TX,32.4679,-99.7619
+Akron-Canton Regional Foodbank,89,1533896,0.133,204150,350 Opportunity Parkway,Akron,44307.0,Ohio,OH,41.0695,-81.5488
+"Second Harvest Food Bank of East Central Indiana, Inc.",90,448350,0.159,71280,6621 N. Old SR 3,Muncie,47303.0,Indiana,IN,40.218,-85.379
+MANNA FoodBank,91,743615,0.16,119160,627 Swannanoa River Rd,Asheville,28805.0,North Carolina,NC,35.6004,-82.4918
+South Michigan Food Bank,92,864620,0.136,117680,5451 Wayne Road,Battle Creek,49037.0,Michigan,MI,42.3453,-85.2178
+Second Harvest Food Bank of Lehigh Valley and NE Pennsylvania,93,1006655,0.111,111430,6969 Silver Crest Road,Nazareth,18064.0,Pennsylvania,PA,40.745,-75.3199
+The Idaho Foodbank,94,1483225,0.115,169930,3630 E Commercial Ct,Meridian,83642.0,Idaho,ID,43.615,-116.3975
+Community Food Share,95,390396,0.109,42380,650 S. Taylor Ave.,Louisville,80027.0,Colorado,CO,39.9789,-105.1456
+Northern Illinois Food Bank,96,3985135,0.086,344270,273 Dearborn Court,Geneva,60134.0,Illinois,IL,41.886,-88.311
+FIND Food Bank,97,4560470,0.117,534440,83-775 Citrus Ave|P.O. Box 10080,Indio,92202.0,California,CA,33.7529,-116.0556
+HACAP Food Reservoir,98,475379,0.089,42510,1515 Hawkeye Drive|PO Box 490,Hiawatha,52233.0,Iowa,IA,42.0425,-91.677
+The Food Bank for Central and Northeast Missouri,99,790787,0.142,112520,"2101 Vandiver Drive, Suite B",Columbia,65202.0,Missouri,MO,38.995,-92.3112
+Feeding the Valley Food Bank,100,564778,0.17,95980,6744 Flat Rock Road,Midland,31820.0,Georgia,GA,32.5616,-84.8559
+"North Country Food Bank, Inc.",101,350545,0.101,35510,1011 11th Ave. NE,East Grand Forks,56721.0,Minnesota,MN,47.9318,-97.0213
+"The Foodbank, Inc.",102,739265,0.147,109030,56 Armor Place,Dayton,45417.0,Ohio,OH,39.7528,-84.247
+Food Bank of the Albemarle,103,306310,0.157,48010,109 Tidewater Way|P. O. Box 1704,Elizabeth City,27906.0,North Carolina,NC,36.2854,-76.2133
+"Feeding America, Kentucky's Heartland",104,1082878,0.154,166660,"313 Peterson Dr.,|PO Box 821",Elizabethtown,42701.0,Kentucky,KY,37.6848,-85.8784
+"Tri-State Food Bank, Inc.",105,858132,0.141,120920,2504 Lynch Road,Evansville,47711.0,Indiana,IN,38.0617,-87.5548
+Shared Harvest Foodbank,106,807128,0.118,95040,5901 Dixie Highway,Fairfield,45014.0,Ohio,OH,39.3266,-84.5479
+Community Food Warehouse of Mercer County,107,111518,0.143,15940,109 S Sharpsville Avenue|Suite A,Sharon,16146.0,Pennsylvania,PA,41.2316,-80.4993
+Second Harvest Food Bank of Southeast North Carolina,108,807456,0.179,144390,"406 Deep Creek Road, PO Box 2009",Fayetteville,28302.0,North Carolina,NC,35.0343,-78.9088
+"Community Harvest Food Bank of Northeast Indiana, Inc.",109,670130,0.126,84730,999 East Tillman Road|P. O. Box 10967,Fort Wayne,46855.0,Indiana,IN,41.0938,-85.0707
+Fredericksburg Regional Foodbank,110,400848,0.078,31420,3631 Lee Hill Drive|PO Box 1006,Fredericksburg,22408.0,Virginia,VA,38.2481,-77.4681
+Food Bank for Larimer County,111,344786,0.117,40320,5706 Wright Drive,Loveland,80538.0,Colorado,CO,40.4262,-105.09
+River Valley Regional Food Bank,112,308042,0.193,59470,1617 South Zero Street|PO Box 180070,Ft. Smith,72918.0,Arkansas,AR,35.3859,-94.3985
+"Food Bank of Northwest Indiana, Inc.",113,654343,0.134,87430,6490 Broadway,Merrillville,46410.0,Indiana,IN,41.4957,-87.3509
+Second Harvest North Central Food Bank,114,208929,0.114,23780,2222 Cromell Drive|PO Box 5130,Grand Rapids,55744.0,Minnesota,MN,47.2348,-93.5115
+Weld Food Bank,115,305345,0.108,33010,1108 H Street,Greeley,80631.0,Colorado,CO,40.385,-104.6806
+Foodshare,116,1044624,0.136,141980,450 Woodland Avenue,Bloomfield,6002.0,Connecticut,CT,41.8316,-72.7249
+Facing Hunger Foodbank,117,467106,0.166,77560,1327 Seventh Avenue,Huntington,25701.0,West Virginia,WV,38.4097,-82.4423
+Food Bank of North Alabama,118,1089725,0.157,171440,2000 B. Vernon Ave.|P.O. Box 18607,Huntsville,35805.0,Alabama,AL,34.7059,-86.6165
+Mississippi Food Network,119,1779960,0.189,336960,440 W. Beatty Street|PO Box 411 (39205),Jackson,39201.0,Mississippi,MS,32.2935,-90.1867
+Food Bank of Northeast Arkansas,120,500090,0.193,96350,3414 One Place|P.O. Box 2097,Jonesboro,72402.0,Arkansas,AR,35.8088,-90.6529
+Lowcountry Food Bank,121,1471857,0.11,161430,2864 Azalea Drive,Charleston,29405.0,South Carolina,SC,32.853,-79.9913
+Greater Lansing Food Bank,122,689027,0.14,96260,5600 Food Ct,Bath,48906.0,Michigan,MI,42.7635,-84.558
+Three Square Food Bank,123,2232533,0.163,363750,4190 N. Pecos Rd.,Las Vegas,89115.0,Nevada,NV,36.2158,-115.0671
+"God's Pantry Food Bank, Inc.",124,1531884,0.174,266180,1685 Jaggie Fox Way,Lexington,40511.0,Kentucky,KY,38.0932,-84.5007
+"Food Bank of Lincoln, Inc.",125,470798,0.122,57510,"4840 Doris Bair Circle, Suite A",Lincoln,68504.0,Nebraska,NE,40.8392,-96.6532
+Middle Georgia Community Food Bank,126,708424,0.156,110560,4490 Ocmulgee East Boulevard|PO Box 5024,Macon,31217.0,Georgia,GA,32.8118,-83.565
+Second Harvest Foodbank of Southern Wisconsin,127,1277333,0.098,125370,2802 Dairy Drive,Madison,53718.0,Wisconsin,WI,43.0984,-89.2734
+New Hampshire Food Bank,128,1348124,0.096,129470,700 East Industrial Park Drive,Manchester,3109.0,New Hampshire,NH,42.9713,-71.4135
+United Food Bank,129,4995930,0.143,715480,245 South Nina Drive,Mesa,85210.0,Arizona,AZ,33.3887,-111.8428
+SE Ohio Foodbank,130,304094,0.175,53200,1005 CIC Drive,Logan,43138.0,Ohio,OH,39.5372,-82.4126
+Virginia Peninsula Foodbank,131,537162,0.115,61810,2401 Aluminum Avenue,Hampton,23661.0,Virginia,VA,37.0074,-76.3801
+Alameda County Community Food Bank,132,1656754,0.109,180930,7900 Edgewater Drive|P.O. Box 2599,Oakland,94621.0,California,CA,37.7589,-122.1853
+West Texas Food Bank,133,482450,0.164,78900,411 S. Pagewood Ave.,Odessa,79761.0,Texas,TX,31.8579,-102.3523
+Helping Harvest,134,560699,0.114,63970,117 Morgan Drive,Reading,19608.0,Pennsylvania,PA,40.3113,-76.0345
+Channel One Food Bank,135,657156,0.087,57000,"131 35th Street, SE",Rochester,55904.0,Minnesota,MN,44.0105,-92.3973
+Placer Food Bank,136,673319,0.103,69160,8284 Industrial Ave,Roseville,95678.0,California,CA,38.7609,-121.2867
+Foodbank of Santa Barbara County,137,726994,0.108,78800,4554 Hollister Avenue,Santa Barbara,93110.0,California,CA,34.4418,-119.7647
+Redwood Empire Food Bank,138,814626,0.129,104720,3990 Brickway Blvd,Santa Rosa,95403.0,California,CA,38.4822,-122.7473
+"Worcester County Food Bank, Inc.",139,824772,0.102,83930,474 Boston Turnpike,Shrewsbury,1545.0,Massachusetts,MA,42.2848,-71.7205
+Southeast Missouri Food Bank,140,367623,0.173,63630,600 State Highway H|PO Box 190,Sikeston,63801.0,Missouri,MO,36.8911,-89.582
+Feeding South Dakota,141,870638,0.11,96070,4701 N Westport Ave,Sioux Falls,57107.0,South Dakota,SD,43.5566,-96.8028
+Vermont Foodbank,142,624313,0.11,68780,33 Parker Road,Barre,5641.0,Vermont,VT,44.1945,-72.4936
+"Second Harvest Foodbank of Clark, Champaign, and Logan Counties",143,218887,0.145,31660,20 N Murray,Springfield,45503.0,Ohio,OH,39.9528,-83.7804
+Ozarks Food Harvest,144,1125355,0.159,179410,2810 N. Cedarbrook Ave,Springfield,65803.0,Missouri,MO,37.2593,-93.2912
+Second Harvest Community Food Bank,145,348562,0.138,48030,915 Douglas,St. Joseph,64505.0,Missouri,MO,39.7965,-94.8443
+"Second Harvest of the Big Bend, Inc.",146,520566,0.15,77960,4446 Entrepot Blvd,Tallahassee,32310.0,Florida,FL,30.3991,-84.3298
+Terre Haute Catholic Charities Foodbank,147,256132,0.16,40980,430 N 14th 1/2 St,Terre Haute,47807.0,Indiana,IN,39.471,-87.4009
+Toledo Northwestern Ohio Food Bank,148,805350,0.145,117170,24 East Woodruff Avenue,Toledo,43604.0,Ohio,OH,41.6614,-83.5249
+Eastern Illinois Foodbank,150,1109233,0.119,131970,2405 North Shore Drive,Urbana,61802.0,Illinois,IL,40.0746,-88.1691
+Second Harvest Food Bank of North Central Ohio,151,482610,0.14,67620,5510 Baumhart Rd,Lorain,44053.0,Ohio,OH,41.432,-82.2038
+Northeast Iowa Food Bank,152,377054,0.094,35450,1605 Lafayette Steet|PO Box 2397,Waterloo,50703.0,Iowa,IA,42.5149,-92.3269
+"Long Island Cares, Inc.",153,2840341,0.069,196360,10 Davids Drive,Hauppauge,11788.0,New York,NY,40.8231,-73.1958
+Kansas Food Bank,154,1495571,0.139,207310,1919 E. Douglas,Wichita,67211.0,Kansas,KS,37.6662,-97.3165
+Wichita Falls Area Food Bank,155,225644,0.192,43430,1230 Midwestern Parkway|PO Box 623,Wichita Falls,76307.0,Texas,TX,33.9137,-98.4934
+Second Harvest Food Bank of the Mahoning Valley,156,533518,0.161,85710,2805 Salt Springs Road,Youngstown,44509.0,Ohio,OH,41.105,-80.6945
+East Texas Food Bank,157,1278507,0.188,240850,3201 Robertson Road,Tyler,75701.0,Texas,TX,32.3254,-95.2922
+Second Harvest Northern Lakes Food Bank,158,330920,0.116,38320,4503 Airpark Boulevard,Duluth,55811.0,Minnesota,MN,46.8147,-92.1998
+Second Harvest Food Bank of Northeast Tennessee,159,508884,0.171,86780,1020 Jericho Drive,Kingsport,37663.0,Tennessee,TN,36.4715,-82.4834
+Great Plains Food Bank,160,820163,0.076,62340,1720 3rd Avenue North,Fargo,58102.0,North Dakota,ND,46.9209,-96.8318
+"Food Bank of the Rio Grande Valley, Inc.",161,1298430,0.214,278140,724 N. Cage Blvd.,Pharr,78577.0,Texas,TX,26.1771,-98.187
+Feeding Westchester,162,968890,0.09,87160,200 Clearbrook Road,Elmsford,10523.0,New York,NY,41.0572,-73.8136
+Food Bank for Monterey County,163,433410,0.113,49070,"815 W. Market Street, Suite 5",Salinas,93901.0,California,CA,36.6677,-121.6596
+Good Shepherd Food Bank,164,1335492,0.136,181470,3121 Hotel Road|PO Box 1807,Auburn,4211.0,Maine,ME,44.197,-70.2395
+Food Bank of Central Louisiana,165,390796,0.178,69600,3223 Baldwin Avenue,Alexandria,71301.0,Louisiana,LA,31.2885,-92.4633
+Food Bank of Northern Indiana,166,733376,0.138,101050,702 South Chapin Street,South Bend,46601.0,Indiana,IN,41.6727,-86.2535
+Utah Food Bank,167,3096848,0.121,373400,3150 South 900 West,Salt Lake City,84119.0,Utah,UT,40.6916,-112.0011
+Harry Chapin Food Bank of Southwest Florida,168,1344236,0.13,175280,3760 Fowler St.,Ft. Myers,33901.0,Florida,FL,26.6204,-81.8725
+Central California Food Bank,169,2640184,0.154,407630,4010 E. Amendola Ave.,Fresno,93725.0,California,CA,36.6207,-119.7308
+All Faiths Food Bank,170,456399,0.13,59510,8171 Blaikie Ct.,Sarasota,34240.0,Florida,FL,27.339,-82.3473
+West Ohio Food Bank,171,504131,0.127,63860,1380 East Kibby Street|P.O. Box 1566,Lima,45804.0,Ohio,OH,40.7275,-84.089
+H and J Weinberg NE PA Regional Food Bank,172,596612,0.139,82950,185 Research Drive,Pittston,18640.0,Pennsylvania,PA,41.3175,-75.7885
+Food Bank of the Golden Crescent,173,303970,0.174,52770,3809 E. Rio Grande|P.O.Box 5085,Victoria,77901.0,Texas,TX,28.809,-96.9993
+"Second Harvest of South Georgia, Inc",174,614713,0.172,105560,1411 Harbin Circle,Valdosta,31601.0,Georgia,GA,30.7539,-83.3321
+Westmoreland County Food Bank,175,352590,0.117,41140,100 Devonshire Drive,Delmont,15626.0,Pennsylvania,PA,40.4139,-79.5764
+Philabundance,176,5420413,0.117,636880,3616 S. Galloway Street,Philadelphia,19148.0,Pennsylvania,PA,39.9207,-75.1595
+City Harvest,177,8419316,0.171,1437320,"6 East 32nd Street, 5th Fl.",New York,10016.0,New York,NY,40.7443,-73.9781
+Greater Baton Rouge Food Bank,178,875626,0.148,129250,10600 S. Choctaw Drive|Post Office Box 45830,Baton Rouge,70815.0,Louisiana,LA,30.4558,-91.0596
+Hoosier Hills Food Bank,179,257665,0.15,38750,2333 West Industrial Park Drive|PO Box 697,Bloomington,47404.0,Indiana,IN,39.195,-86.5757
+Food Gatherers,180,367000,0.116,42450,1 Carrot Way|P.O. Box 131037,Ann Arbor,48105.0,Michigan,MI,42.3042,-83.7068
+Forgotten Harvest,181,3880809,0.158,612350,21800 Greenfield Road,Oak Park,48237.0,Michigan,MI,42.4662,-83.184
+Inter-Faith Food Shuttle,182,1940649,0.126,244820,1001 Blair Drive,Raleigh,27620.0,North Carolina,NC,35.7977,-78.6253
+"FULFILL - (The FoodBank of Monmouth and Ocean Counties, Inc.)",183,1218074,0.112,136440,3300 Route 66,Neptune,7753.0,New Jersey,NJ,40.2096,-74.0714
+Island Harvest,184,2840341,0.069,196360,126 Spagnoli Road,Melville,11747.0,New York,NY,40.7946,-73.403
+"Harvest Regional Food Bank, Inc.",185,251209,0.183,46080,3120 East 19th Street|P.O. Box 707,Texarkana,71854.0,Arkansas,AR,33.431,-93.8765
+St. Mary's Food Bank,186,5519420,0.146,804030,2831 N. 31st Avenue,Phoenix,85009.0,Arizona,AZ,33.4564,-112.1284
+Montana Food Bank Network,187,1050649,0.11,115160,5625 Expressway,Missoula,59808.0,Montana,MT,46.9776,-114.0619
+Southeast Texas Food Bank,188,525496,0.206,108310,3845 Martin Luther King Parkway|P O Box 21012,Beaumont,77705.0,Texas,TX,30.0211,-94.1157
+Food Bank of Northeast Georgia,189,550707,0.145,79950,861 Newton Bridge Road|P.O. Box 48857,Athens,30604.0,Georgia,GA,33.9443,-83.3891
+Food Bank of Northwest Louisiana,190,476975,0.18,85730,2307 Texas Avenue,Shreveport,71103.0,Louisiana,LA,32.4945,-93.7727
+Food Bank of Northeast Louisiana,191,351166,0.189,66260,4600 Central Ave|PO Box 5048,Monroe,71211.0,Louisiana,LA,32.4908,-92.1594
+Food Finders Food Bank Inc.,192,590962,0.139,82250,1204 Greenbush Street,Lafayette,47904.0,Indiana,IN,40.4276,-86.8735
+Feeding Northeast Florida,193,1713944,0.135,231800,"1116 Edgewood Avenue North, Units D and E",Jacksonville,32254.0,Florida,FL,30.3415,-81.7358
+Treasure Coast Food Bank,194,667145,0.132,87970,401 Angle Rd.,Ft. Pierce,34947.0,Florida,FL,27.4493,-80.3592
+Yuma Community Food Bank,195,230261,0.178,41040,2404 E 24th St. Ste. A,Yuma,85365.0,Arizona,AZ,32.7093,-114.4905
+Northwest Arkansas Food Bank,196,542224,0.145,78800,1378 June Self Drive,Bethel Heights,72764.0,Arkansas,AR,36.1716,-94.0428
+South Texas Food Bank,197,478379,0.208,99310,2121 Jefferson St.,Laredo,78040.0,Texas,TX,27.5155,-99.4986
+El Pasoans Fighting Hunger,198,842691,0.179,150700,9541 Plaza Circle,El Paso,79927.0,Texas,TX,31.6446,-106.2737
