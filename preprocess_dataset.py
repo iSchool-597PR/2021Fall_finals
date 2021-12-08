@@ -96,6 +96,7 @@ def parse_address_and_combine(df_address: pd.DataFrame, df_foodbank: pd.DataFram
 
     return combined.reset_index()
 
+
 if __name__ == '__main__':
     col = ['Food Bank', 'Total Population',
            '[Revised Projections – March 2021]\n2021 Food Insecurity  %',
@@ -104,6 +105,16 @@ if __name__ == '__main__':
     foodbank = pd.read_excel('data/Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
     address = get_address('data/AllFoodBank.txt')
     foodbank_with_address = parse_address_and_combine(address,foodbank)
+
+    # check duplicate population in some food banks
+    duplicate = foodbank_with_address[foodbank_with_address['Total Population'].duplicated()]
+    duplicate_ppl = duplicate['Total Population'].values
+    duplicate_foodbank = foodbank_with_address[foodbank_with_address['Total Population'].isin(duplicate_ppl)]
+
+    # yield these pair of duplicated foodbanks share the population equally
+    duplicate_new_value = round(duplicate_foodbank['Total Population'] / 2, 0).values
+    # update dataframe with new value
+    foodbank_with_address.loc[duplicate_foodbank.index, 'Total Population'] = duplicate_new_value
 
     # combining lat long values by zip codes
     df_zipcode = pd.read_csv('data/zip.csv')
