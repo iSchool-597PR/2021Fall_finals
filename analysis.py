@@ -7,14 +7,13 @@ import xlrd
 # import geopandas
 # from shapely import wkt
 
-def read_files(filename):
+def read_file(year, filename):
     dataframes_dict = {}
-    for i in range(2010,2020):
-        file = "data/" + str(i) + "/" + str(filename) + ".csv"
-        # file1 = "data/" + str(i) + "/ACCIDENT.csv"
-        try:
-            df = pd.read_csv(file)
-        except:
-            df = pd.read_csv(file, encoding= 'unicode_escape')
-        dataframes_dict[i] = df
-    return dataframes_dict
+    file = "data/" + str(year) + "/" + str(filename) + ".csv"
+    # file1 = "data/" + str(i) + "/ACCIDENT.csv"
+    try:
+        df = pd.read_csv(file)
+    except:
+        df = pd.read_csv(file, encoding='unicode_escape')
+
+    return df
