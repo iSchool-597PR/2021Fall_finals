@@ -29,25 +29,25 @@ def get_address(filename: str) -> pd.DataFrame:
     """
     with open(filename, 'r') as f:
         # creat a dictionary to store all information of each food bank
-        address = {}
+        address_dict = {}
         # initial a token to check the boundary between food banks
         now = None
         for line in f:
             row = line.strip()
             if 'logo' in row:
                 row = row.replace('logo', '').strip()
-                if row not in address.keys():
+                if row not in address_dict.keys():
                     now = row
-                    address[now] = []
+                    address_dict[now] = []
                 else:
                     continue
             else:
                 if row:
-                    address[now].append(row)
+                    address_dict[now].append(row)
                 else:
                     continue
 
-    df_address = pd.DataFrame.from_dict(address, orient='index')
+    df_address = pd.DataFrame.from_dict(address_dict, orient='index')
     # only return columns with address information
     return df_address[[0, 1, 2, 3]]
 
@@ -84,27 +84,29 @@ def parse_address_and_combine(df_address: pd.DataFrame, df_foodbank: pd.DataFram
     for n in tocheck.index:
         name_tocheck = n.replace(', Inc.', '').replace('and', '&').replace(' ', '').lower()
         if name_tocheck in address_cleaned.index:
-            combined.loc[n,col_process] = address_cleaned.loc[name_tocheck]
+            combined.loc[n, col_process] = address_cleaned.loc[name_tocheck]
 
     # manually fill in values to the rows with slightly different name but no similar pattern to process together
-    combined.loc['Feeding America West Michigan Food Bank', col_process] = ['864 West River Center Drive NE',
-                                                                          'Comstock Park', 'MI', '49321']
-    combined.loc['Connecticut Food Bank', col_process] = ['2 Research Parkway','Wallingford', 'CT', '06492']
-    combined.loc['Foodbank of Southeastern Virginia', col_process] = ['800 Tidewater Drive|PO Box 1940',
-                                                                     'Norfolk', 'VA', '23504']
+    combined.loc['Feeding America West Michigan Food Bank', col_process] = \
+        ['864 West River Center Drive NE', 'Comstock Park', 'MI', '49321']
+    combined.loc['Connecticut Food Bank', col_process] = ['2 Research Parkway', 'Wallingford', 'CT', '06492']
+    combined.loc['Foodbank of Southeastern Virginia', col_process] \
+        = ['800 Tidewater Drive|PO Box 1940', 'Norfolk', 'VA', '23504']
     combined.loc['Westmoreland County Food Bank', col_process] = ['100 Devonshire Drive', 'Delmont', 'PA', '15626']
 
     return combined.reset_index()
 
 
 if __name__ == '__main__':
-    col = ['Food Bank', 'Total Population',
+    col = ['Food Bank', 'ID', 'Total Population',
            '[Revised Projections – March 2021]\n2021 Food Insecurity  %',
            '[Revised Projections – March 2021]\n2021 Food Insecurity #']
 
     foodbank = pd.read_excel('data/Food Banks - 2021 Projections.xlsx', index_col=0, usecols=col)
+    col_rename = ['ID', 'Total Population', '2021 Food Insecurity %', '2021 Food Insecurity #']
+    foodbank.columns = col_rename
     address = get_address('data/AllFoodBank.txt')
-    foodbank_with_address = parse_address_and_combine(address,foodbank)
+    foodbank_with_address = parse_address_and_combine(address, foodbank)
 
     # check duplicate population in some food banks
     duplicate = foodbank_with_address[foodbank_with_address['Total Population'].duplicated()]
@@ -120,10 +122,10 @@ if __name__ == '__main__':
     df_zipcode = pd.read_csv('data/zip.csv')
     # change data type for merge
     foodbank_with_address['zip_code'] = foodbank_with_address['zip_code'].astype('float64')
-    combine = pd.merge(foodbank_with_address.reset_index(),df_zipcode,
-                       how='left',left_on='zip_code',right_on='postal code')
-    # print(combine.set_index('Food Bank').columns)
-    col2 = ['state_x', 'postal code', 'country code', 'Country']
-    foodbank_with_latlon = combine.drop(columns=col2).dropna().set_index('Food Bank')
-    foodbank_with_latlon.to_csv('foodbank_with_latlon.csv', index=True)
+    combine = pd.merge(foodbank_with_address.reset_index(), df_zipcode,
+                       how='left', left_on='zip_code', right_on='postal code')
 
+    col2 = ['index', 'state_x', 'postal code', 'country code', 'Country']
+    foodbank_with_latlon = combine.drop(columns=col2).dropna().set_index('Food Bank')
+    # foodbank_with_latlon.to_csv('foodbank_with_latlon.csv', index=True)
+    print(foodbank_with_latlon[['city', 'statecode', 'latitude', 'longitude']])
