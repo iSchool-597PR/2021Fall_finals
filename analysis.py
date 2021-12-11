@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # import openpyxl
 import geopandas
 # from shapely import wkt
-
+import plotly.express as px
 
 def read_file(year, filename):
     file = "data/" + str(year) + "/" + str(filename) + ".csv"
@@ -44,6 +44,11 @@ def bar_line_chart(df, graph_details):
     linechart = plt.plot(df['Year'], df['{} Rate per 100 Million VMT'.format(graph_details["line_bar_key"])], color='red')
     plt.xticks(x)
     plt.ylabel('{} Rate Per 100 Million VMT'.format(graph_details["line_bar_key"]))
+
+
+def plot_line(df, col1, col2):
+    fig = px.line(df, x="Year", y= df.columns[col1:col2])
+    fig.show()
 
 
 def values(df):
