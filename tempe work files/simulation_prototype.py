@@ -36,7 +36,7 @@ def mod_pert_random(low, likely, high, confidence=4, samples=1):
 
 if __name__ == '__main__':
 
-    df = pd.read_csv('foodbank_with_latlon.csv',
+    df = pd.read_csv('../foodbank_with_latlon.csv',
                      usecols=['Food Bank', 'ID', 'Total Population', '2021 Food Insecurity %',
                               '2021 Food Insecurity #', 'latitude', 'longitude'])
     df = df.set_index('ID')

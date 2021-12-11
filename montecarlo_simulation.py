@@ -277,11 +277,11 @@ def daily_simulation(g: nx.DiGraph, node: int, supply: np.array, days=7) -> floa
 
     return waste_percentage
 
-def mc_simulation(g: nx.DiGraph, total_rounds: int, network_supply: int) -> pd.DataFrame:
+def mc_simulation(g: nx.DiGraph, times_to_run: int, network_supply: int) -> pd.DataFrame:
     """
     To simulate multiple times for two scenarios.
     :param g:
-    :param total_rounds:
+    :param times_to_run:
     :param network_supply:
     :return:
     """
@@ -289,11 +289,10 @@ def mc_simulation(g: nx.DiGraph, total_rounds: int, network_supply: int) -> pd.D
     count = 0
     result = pd.DataFrame(nodes)
 
-    while count < total_rounds:
+    while count < times_to_run:
         nodes_results = []
         supply = None
         for node in nodes:
-            # food_waste_result[node] = []
             if network_supply == 0:
                 supply = generate_random_variables(g, node, 'supply')
             if network_supply == 1:
@@ -343,8 +342,8 @@ if __name__ == '__main__':
     nodes = list(graph.nodes)
     add_edges_between_nearest_foodbanks(graph, nodes, distance_threshold=120)
 
-    food_waste_without_network = mc_simulation(graph, total_rounds=15, network_supply=0)
-    food_waste_with_network = mc_simulation(graph, total_rounds=15, network_supply=1)
+    food_waste_without_network = mc_simulation(graph, times_to_run=15, network_supply=0)
+    food_waste_with_network = mc_simulation(graph, times_to_run=15, network_supply=1)
 
     print(food_waste_without_network)
     print(food_waste_with_network)
