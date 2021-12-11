@@ -1,18 +1,17 @@
 # Fresh Food Supply Network Simulation   
 IS597PR Final Projects – Fall 2021 
 
---- 
+
 
 ### Team Members:
 
----
 
 Candice Chen, Kinjal Shah   
 (GitHub ID: candicechen016, kinjal-shah4)
 
 ## Introduction
 
----
+
 
 >*The USDA estimates that approximately 7.3 billion pounds of produce is wasted in the U.S. each year. The Feeding America network of 200 food banks, in conjunction with 60,000 food pantries and meal programs, would like to see more of those fruits and vegetables go to neighbors in need. ([Feeding America](https://www.feedingamerica.org/hunger-blog/new-produce-matchmaker))*  
 
@@ -21,7 +20,7 @@ So we are interested in how their network operates to lower the fresh food waste
 
 ## Monte Carlo Simulation Scenarios
 
----
+
 With the uncertain demand and supply of fresh produce in food bank's daily operation, we use Monte Carlo simulation to calculate the percentage of **fresh** food waste in the food bank network. 
 
 So we test these two scenarios:   
@@ -62,13 +61,11 @@ After combining out data sets with zip codes,
 
 ## Conclusions
 
----
 
 
 
 ## Discussions
 
----
 1. Daily Operation by LIFO or FIFO approach
 2. Simulate different food freshness
 3. The relation between food waste percentage and food freshness
@@ -76,12 +73,10 @@ After combining out data sets with zip codes,
 
 ## Instructions on how to use the program
 
----
 
 
 ## Member Contributions
 
----
 - The project topic, simulation scenarios are done by both team members together.
 - The preprocess_dataset.py is completed by both members. Canice worked on scraping and processing the adress information on the webpage then merged to the food banks data set. Kinjal combined the food banks data sets with external zip code data set to get the latitude and longitude.
 - Functions completed together: add_edges_with_attributes, add_edges_between_nearest_foodbanks
@@ -90,7 +85,6 @@ After combining out data sets with zip codes,
 
 ## All Sources Used
 
----
 ### Data Source
 - Food Insecurity in The United States   
 [https://map.feedingamerica.org/county/2019/overall/](https://map.feedingamerica.org/county/2019/overall/)  
