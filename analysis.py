@@ -170,7 +170,7 @@ def chloropleth(states_shp, col_name, year):
 
 def group_by_time(df):
     """
-    This fucntion takes a dataframe to be divided based on timeslots and returns a dictionary
+    This function takes a dataframe to be divided based on timeslots and returns a dictionary
     :param df: dataframe to be sorted into different timeslots
     :return dict_by_time: dictionary of dataframe based on time slot is returned.
     """
@@ -183,6 +183,13 @@ def group_by_time(df):
 
 
 def group_by_plot_bar(df_list, df_name_list):
+    """
+    This function takes dataframes, groups them by month based on daylight and saving
+    and then plots bar graph for the same
+    :param df_list: list of dataframes
+    :param df_name_list:list of plot titles
+    :return: plot of hours vs mean value of fatalities
+    """
     for i in range(0,2):
         df_counts = df_list[i].groupby(['HOUR']).count()
         df_counts.reset_index(inplace = True)
