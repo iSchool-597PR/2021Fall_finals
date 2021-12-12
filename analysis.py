@@ -86,7 +86,7 @@ def states_shape_merge(df, year):
 
     states_shp = geopandas.read_file('data/geopandas/usa-states-census-2014.shp')
     states_shp = states_shp.merge(df[year], on="NAME")
-    states_shp['fatalities{}'.format(year-1)] = states_shp['fatalities{}'.format(year-1)].str.replace(',', '').astype(int)
+    # states_shp['fatalities{}'.format(year)] = states_shp['fatalities{}'.format(year)].str.replace(',', '').astype(int)
     return states_shp
 
 
