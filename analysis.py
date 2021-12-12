@@ -19,7 +19,7 @@ def read_file(year, filename):
     :return: dataframe obtained from data
     """
     file = "data/" + str(year) + "/" + str(filename) + ".csv"
-    # file1 = "data/" + str(i) + "/ACCIDENT.csv"
+    # file1 = "data/" + str(i) + "/ACCIDENT.csv"f
     try:
         df = pd.read_csv(file)
     except:
@@ -69,7 +69,7 @@ def bar_line_chart(df, graph_details):
     plt.ylabel('{} Rate Per 100 Million VMT'.format(graph_details["line_bar_key"]))
 
 
-def plot_line(df, col1, col2):
+def plot_line(df, col1, col2, title_text):
     """
     This fucntion takes a dataframe and range of columnn numbers to plot a line chart.
     :param df: dataframe with values to be plotted
@@ -78,6 +78,7 @@ def plot_line(df, col1, col2):
     :return: plots a line chart  
     """
     fig = px.line(df, x="Year", y= df.columns[col1:col2])
+    fig.update_layout(title_text=title_text, title_x=0.5)
     fig.show()
     fig.show("png")
 
