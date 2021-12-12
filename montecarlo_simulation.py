@@ -418,7 +418,7 @@ if __name__ == '__main__':
     filename = '_{}days_{}times_{}nodes'.format(days_to_run, test_times, len(df_avg_results))
     plt.figure()
     ax1 = df_avg_results.reset_index(drop=True).plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True,
-                                                     figsize=(28, 16), fontsize=20)
+                                                     figsize=(16, 12), fontsize=20)
 
     ax1.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
     ax1.set_ylabel('Number of Food Banks', fontdict={'fontsize': 20})
@@ -441,7 +441,7 @@ if __name__ == '__main__':
 
 
     plt.figure()
-    ax2 = df_edges.plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True, figsize=(28, 16),
+    ax2 = df_edges.plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True, figsize=(16, 12),
                         color=['#A0E8AF', '#FFCF56'])
 
     ax2.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
