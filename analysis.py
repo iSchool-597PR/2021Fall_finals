@@ -86,7 +86,7 @@ def states_shape_merge(df, year):
 
     states_shp = geopandas.read_file('data/geopandas/usa-states-census-2014.shp')
     states_shp = states_shp.merge(df[year], on="NAME")
-    states_shp['fatalities{}'.format(year-1)] = states_shp['fatalities{}'.format(year-1)].str.replace(',', '').astype(int)
+    # states_shp['fatalities{}'.format(year)] = states_shp['fatalities{}'.format(year)].str.replace(',', '').astype(int)
     return states_shp
 
 
@@ -108,3 +108,11 @@ def chloropleth(states_shp, col_name, year):
     states_shp.plot(column='{}{}'.format(col_name, year), cmap='Blues', linewidth=1, ax=ax, edgecolor='0.9', legend=True)
     plt.title('Fatalities in the USA in {}'.format(year))
     ax.axis('off')
+
+def group_by_time(df):
+    time_slots = ['12am - 2:59am', '3am - 5:59am', '6am - 8:59am', '9am - 11:59am',
+                  '12pm - 2:59pm', '3pm - 5:59pm', '6pm - 8:59pm', '9pm - 11:59pm']
+    for hour in range(0, 24, 3):
+        df.loc[(df['HOUR'] >= hour) & (df['HOUR'] < hour + 3), 'category'] = time_slots[int(hour / 3)]
+    dict_by_time = dict(df["category"].value_counts())
+    return dict_by_time
