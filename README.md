@@ -32,7 +32,7 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
       
     2. There is an increase in this rate from 2015
     
-        ![Screenshot](scatterplot.jpeg)
+        ![Screenshot](scatterplot.png)
         
         Our assumption in this case is that since the gasoline prices saw a decrease in 2016 due to which there is an upward trend in the fatalities, this can be analyzed using the scatter plot as shown
         
@@ -53,13 +53,13 @@ We first slice the DataFrame into two categories
 2. Deaths which does not involve drunk driving
 INJ_SEV == 4 or 2 means that the fatalities are cases of drunk driving
 
-![Screenshot](code_drunk.jpeg)
+![Screenshot](code_drunk.png)
 
 Step 2:
 
 Let us observe the plots for 2019, 2016 and 2011
 
-![Screenshot](drunk_death_2019.jpeg)
+![Screenshot](drunk_death_2019.png)
 Plot for 2019
 
 ![Screenshot](drunk_death_2016.jpeg)
@@ -80,13 +80,13 @@ Step 2 :
 
 Let us observe the plots for 2019, 2016 and 2011
 
-![Screenshot](model_2016.jpeg)
+![Screenshot](model_2016.png)
 Plot for 2016
 
-![Screenshot](model_2019.jpeg)
+![Screenshot](model_2019.png)
 Plot for 2019
 
-![Screenshot](model_2011.jpeg)
+![Screenshot](model_2011.png)
 Plot for 2011
 
 We can see that there are lot of cases of fatalities in the newer model of the car as compared to the older one, we can hence reject our initial hypothesis since the evidence is strongly suggesting against it. The possibility of this can be that there are more number of people who own newer model of cars 
