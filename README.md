@@ -29,6 +29,7 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
       ![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/fatality_line.png)
 
       Our assumption is that this is possible because the States became more strict in enforcing restraints in vehicles and hence there were less number of fatalities during this period.
+      ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/restraints.PNG)
       
     2. There is an increase in this rate from 2015
     
