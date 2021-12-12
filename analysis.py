@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import geopandas
 # from shapely import wkt
 import plotly.express as px
+import kaleido
+
 
 def read_file(year, filename):
     """
@@ -77,6 +79,7 @@ def plot_line(df, col1, col2):
     """
     fig = px.line(df, x="Year", y= df.columns[col1:col2])
     fig.show()
+    fig.show("png")
 
 
 def values(df):
