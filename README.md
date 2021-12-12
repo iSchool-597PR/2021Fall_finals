@@ -2,7 +2,7 @@
 
 ### Overview: 
 
-It is important to analyze how, where and, when the crashes occur. It also helps the law enforcements to understand the nature and injury outcomes of crashes. Our project aims at analyzing these questions. We have referred the NHTSA official report to recreate and check if what they have plotted and analyzed is proper. This has also allowed us to expand on what they have done and what they could have done better in their analysis and plot. Our research has led us to study few hypothesis
+It is important to analyze how, where and, when vehicle crashes occur for our personal safety and information. And it also helps the law enforcements to understand the nature and injury outcomes of crashes. Our project aims at analyzing these questions. We have referred the NHTSA official report to recreate and check if what they have plotted and analyzed makes sense and can be useful. This has also allowed us to expand on what they have done and what they could have done better in their analysis and plots. Our research has led us to study some hypothesis as follows:
 
 Here are few things NHTSA could have done better in order to incorporate a much more precise way of analysing the data
 
@@ -17,18 +17,18 @@ This is a perfect graph if we want to analyze just the fatalities but it would m
 This is a Normalized Chloropleth plot of the fatalities which takes into consideration the number of vehicles in each state.
 
 
-2. They have plotted data for the year of 2019 but if we want to do a year on year analysis, it's not possible. Even in their previous editions they have different graphs, hence it becomes difficult to analyze the changes and trends from the previous years which could allow decision makers to take reasonable and proper action. We have allowed the user to have the liberty to enter the year they want and do a comparitive analysis via the graph which will provide a uniformity in comparison.
+2. They have plotted data for the year of 2019 but if we want to do a year by year analysis, it's not possible tounderstand that using their analysis. Even in their previous editions they have different graphs, hence it becomes difficult to analyze the changes and trends from the previous years which could allow decision makers to take reasonable and proper action. We have allowed the user to have the liberty to enter the year they want which allows them to do a comparitive analysis via the graph which will provide a uniformity in comparison.
 
 
 
 
-3. Since the report did not provide any insight on why there is a upward and downward trend in the number of fatalities per 100million VMT, we have analyzed a few factors and have certain assumptions on what the reason can be.
+3. Since the report did not provide any insight on why there is an upward and downward trend in the number of fatalities per 100million VMT, we have analyzed a few factors and have certain assumptions on what the reason can be.
 
     1. There is a steep decrease in the fatality rate per 100 Million VMT from 1980 till around 2015.
       
       ![Screenshot](fatality_line.png)
 
-      Our assumption is that this is possible because the States became more strict in enforcing restraints in vehicles and hence there were       less number of fatalities during this period
+      Our assumption is that this is possible because the States became more strict in enforcing restraints in vehicles and hence there were less number of fatalities during this period.
       
     2. There is an increase in this rate from 2015
     
