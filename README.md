@@ -99,7 +99,7 @@ Plot for 2019
 ![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_3_2.jpeg)
 Plot for 2016
 
-![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_3_1.PNG)
+![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_3_1.jpeg)
 Plot for 2011
 
 From this graph we can see that there has been higher number of deaths associated with drunk driving during the time of 9am-11am. We could see that from all these graphs that morning and afternoon times have higher deaths associated with drunk driving. Hence we cannot accept the hypothesis that Fatalities due to drunk driving is independent of time but we also cannot reject this hypothesis since we do not have other conclusive evidence against this hypothesis.
@@ -111,7 +111,7 @@ Step 1:
 
 We first create a dictionary of dataframes from 2010-2019 and plot the total number of fatalities for each hour of the day over the years
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_1.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_1.png)
 
 From this graph, we see that most fatalities occur from 3pm - 9pm and not 4pm - 7pm.
 
@@ -119,10 +119,10 @@ Step 2:
 
 We plot the total number of fatalities based on the daylight savings months (November to March) and months with no daylight saving hours (April to October), for a particular year, from 3pm to 9pm.
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_2.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_2.png)
 Plot for months with daylight saving hours
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_3.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_3.png)
 Plot for months with no daylight saving hours
 
 The above graph is for the year 2019
@@ -136,7 +136,7 @@ We extract a dataframe from the airbags dictionary based on the desired year and
 
 Step 2:
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5.png)
 Plot for fatalities when airbags were deployed vs when airbags were not deployed
 
 Here, we see that our hypothesis is proved correct since the number of fatalities is greater when no airbags were deployed by almost 1000.
