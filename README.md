@@ -40,6 +40,7 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
 
         
    3. From the above graph we can see that injuries/fatalities with restraint use increased significantly after 1984. This might lead us to think that the use of restraint is not working. However, that is not true. The increase in fatalities with restraint use is a result of combination of factors:
+   
 1) It is in the 1980s that most states made the use of restraint mandatory and hence we see a spike here.
 2) Each year, more and more vehicles were on the road which means that even though the fatalities were rising the percentage of fatalities of  the total accidents was still significantly lower.
         
