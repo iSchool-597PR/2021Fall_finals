@@ -44,7 +44,6 @@ NHTSA has done a great job in plotting the fatalities in the states of USA for t
 
 ### Hypothesis 1: There are more fatal crashes on weekends (Friday, Saturday, Sunday)
 
-
 ### Hypothesis 2: Older models of car leads to more fatalities
 
 Step 1 :
