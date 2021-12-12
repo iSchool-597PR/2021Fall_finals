@@ -1,0 +1,49 @@
+
+There are 197 food banks in our network. 
+We selected some food banks by states with higher food-insecure percentage or more branches in one state.
+Do you want to [1] run all [2] select fewer? 1
+
+Enter the number of days as a cycle to calculate food waste: 60
+Enter the number of times to repeat the entire program: 5
+
+Now, the program is running for you...
+
+
+===== 60 Days Summary by Running 5 Times =====
+
+The number of food banks with lower food waste after sharing: 89 / 197
+The percentage of food banks in total with lower food waste: 45.178% 
+
+     Independent    Network
+0      29.847666  28.185020
+1      32.110317  27.062895
+2      43.553553  40.346775
+3      49.501558  41.816818
+4      38.264444  43.048965
+..           ...        ...
+192    40.606822  42.273516
+193    18.123363  18.273560
+194    31.847939  35.127540
+195    12.974621  12.944794
+196    18.903827  18.955979
+
+[197 rows x 2 columns]
+
+===== 60 Days Summary of Food Banks With Sharing Relation =====
+
+     Independent    Network
+0      49.501558  41.816818
+1      38.264444  43.048965
+2      42.185261  39.766485
+3      54.646961  48.479656
+4       3.968827   4.094804
+..           ...        ...
+128    13.924306  51.519582
+129    32.208280  63.600752
+130    20.088357  14.898621
+131    37.442657  50.258541
+132    31.847939  35.127540
+
+[133 rows x 2 columns]
+
+Process finished with exit code 0

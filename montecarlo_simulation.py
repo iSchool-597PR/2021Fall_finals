@@ -418,13 +418,13 @@ if __name__ == '__main__':
     filename = '_{}days_{}times_{}nodes'.format(days_to_run, test_times, len(df_avg_results))
     plt.figure()
     ax1 = df_avg_results.reset_index(drop=True).plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True,
-                                                     figsize=(16, 12), fontsize=20)
+                                                     figsize=(10, 6), fontsize=20)
 
     ax1.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
     ax1.set_ylabel('Number of Food Banks', fontdict={'fontsize': 20})
     ax1.legend(fontsize=20)
     ax1.set_title(title+'_All'+filename, pad=20, fontdict={'fontsize': 24})
-    ax1.get_figure().savefig(fname=title+'_All'+filename)
+    ax1.get_figure().savefig(fname='output/histograms/'+title+'_All'+filename)
 
     # to get the nodes with edges
     degree_dict = dict(graph.degree)
@@ -441,11 +441,11 @@ if __name__ == '__main__':
 
 
     plt.figure()
-    ax2 = df_edges.plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True, figsize=(16, 12),
+    ax2 = df_edges.plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True, figsize=(10, 6),
                         color=['#A0E8AF', '#FFCF56'])
 
     ax2.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
     ax2.set_ylabel('Number of Food Banks', fontdict={'fontsize': 20})
     ax2.legend(fontsize=20)
     ax2.set_title(title+'_Nodes With Edges'+filename, pad=20, fontdict={'fontsize': 24})
-    ax2.get_figure().savefig(fname=title+'_Nodes With Edges'+filename)
+    ax2.get_figure().savefig(fname='output/histograms/'+title+'_Nodes With Edges'+filename)
