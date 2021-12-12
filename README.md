@@ -38,9 +38,6 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
         
 
 
-<!-- 
-NHTSA has done a great job in plotting the fatalities in the states of USA for the year of 2019 using a map, but a better way to plot this graph would have been to first normalize the values based on the number of vehicles and then plot it on the map. This would have allowed them to see fatalities in relative terms and analyze better.  -->
-
 
 ### Hypothesis 1: There are more fatal crashes on weekends (Friday, Saturday, Sunday)
 
@@ -112,21 +109,40 @@ Step 1:
 We first create a dictionary of dataframes from 2010-2019 and plot the total number of fatalities for each hour of the day over the years
 
 ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_1.png)
+Plot for 2019
 
 From this graph, we see that most fatalities occur from 3pm - 9pm and not 4pm - 7pm.
+
+![](http://localhost:8888/view/2021Fall_finals/Plotly%20graphs/hypothesis_4_1_2016.PNG)
+Plot for 2016
+
+![](http://localhost:8888/view/2021Fall_finals/Plotly%20graphs/hypothesis_4_1_2011.PNG)
+Plot for 2011
 
 Step 2:
 
 We plot the total number of fatalities based on the daylight savings months (November to March) and months with no daylight saving hours (April to October), for a particular year, from 3pm to 9pm.
 
 ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_2.png)
-Plot for months with daylight saving hours
+Plot for months with daylight saving hours for 2019
 
 ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_3.png)
-Plot for months with no daylight saving hours
+Plot for months with no daylight saving hours for 2019
 
-The above graph is for the year 2019
-The garphs prove our hypothesis to be correct, since for almost all the hours from 3pm-9pm (except 6pm which is almost close to the count for the non daylight months) we observe that the count of fatalities are more than 2500 for daylight months, whereas for non daylight months, the count does not even cross 2000. 
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_2_2016.png)
+Plot for months with daylight saving hours for 2016
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_3_2016.png)
+Plot for months with no daylight saving hours for 2016
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_2_2011.png)
+Plot for months with daylight saving hours for 2011
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_4_3_2011.png)
+Plot for months with no daylight saving hours for 2011
+
+
+The garphs prove our hypothesis to be correct, since for almost all the hours from 3pm-9pm (except 6pm which is almost close to the count for the non daylight months) we observe that the count of fatalities are more for daylight months, whereas for non daylight months.
 
 ### Hypothesis 5: Fatalities are less in vehicles where airbags are deployed
 
@@ -137,7 +153,12 @@ We extract a dataframe from the airbags dictionary based on the desired year and
 Step 2:
 
 ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5.png)
-Plot for fatalities when airbags were deployed vs when airbags were not deployed
+Plot for fatalities when airbags were deployed vs when airbags were not deployed for the year 2019
 
-Here, we see that our hypothesis is proved correct since the number of fatalities is greater when no airbags were deployed by almost 1000.
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5_2016.png)
+Plot for fatalities when airbags were deployed vs when airbags were not deployed for the year 2016
 
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5_2011.png)
+Plot for fatalities when airbags were deployed vs when airbags were not deployed for the year 2011
+
+Here, we see that except for the year 2019 vehicles, most of the years where airbags have been deployed has seen more number of fatalities as compared to the vehicles where airbags have not been deployed, hence we reject our initial hypothesis. This result helps us understand that there are lot more factors involved when there is a crash apart from the deployment of airbag which could lead to fatal injuries.

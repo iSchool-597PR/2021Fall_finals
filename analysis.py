@@ -89,6 +89,7 @@ def values(df):
     :param df: dataframe fromwhihc values will be extracted into a dictionary
     :return total_killed: retrns a dictionary with values to be plotted in fucntion plotpie()
     """
+
     total_killed = {}
     for index, row in df.iterrows():
         if (row['Vehicle Type'] != 'Total') and (row['Person Type'] == 'Subtotal'):
@@ -148,13 +149,24 @@ def percent_change_plot(states_shp, col_name, year):
     """
     fig = plt.figure(1, figsize=(25, 15))
     ax = fig.add_subplot()
-    states_shp.apply(lambda x: ax.annotate(
-    s=x.STUSPS + "\n" + str(x["fatalities{}".format(year-1)]) + "\n" + str(x["{}{}".format(col_name, year)]) + "%",
-    xy=x.geometry.centroid.coords[0],
-    ha='center', fontsize=15), axis=1)
-    states_shp.boundary.plot(ax=ax, color='Black', linewidth=.10)
-    states_shp.plot(ax=ax, cmap='Pastel2', figsize=(12, 12))
-    plt.title('Fatalities in {} and percent change from {} to {}'.format(year, year-1, year))
+    try:
+        states_shp.apply(lambda x: ax.annotate(
+        s=x.STUSPS + "\n" + str(x["fatalities{}".format(year-1)]) + "\n" + str(x["{}{}".format(col_name, year)]) + "%",
+        xy=x.geometry.centroid.coords[0],
+        ha='center', fontsize=15), axis=1)
+        states_shp.boundary.plot(ax=ax, color='Black', linewidth=.10)
+        states_shp.plot(ax=ax, cmap='Pastel2', figsize=(12, 12))
+        plt.title('Fatalities in {} and percent change from {} to {}'.format(year, year-1, year))
+    except TypeError:
+        states_shp.apply(lambda x: ax.annotate(
+            text=x.STUSPS + "\n" + str(x["fatalities{}".format(year - 1)]) + "\n" + str(
+                x["{}{}".format(col_name, year)]) + "%",
+            xy=x.geometry.centroid.coords[0],
+            ha='center', fontsize=15), axis=1)
+        states_shp.boundary.plot(ax=ax, color='Black', linewidth=.10)
+        states_shp.plot(ax=ax, cmap='Pastel2', figsize=(12, 12))
+        plt.title('Fatalities in {} and percent change from {} to {}'.format(year, year - 1, year))
+
 
 
 def chloropleth(states_shp, col_name, year):
@@ -166,10 +178,20 @@ def chloropleth(states_shp, col_name, year):
     :return: plots a map of the areas with fatalities
     """
     fig, ax = plt.subplots(1, figsize=(12, 8))
-    states_shp.apply(lambda x: ax.annotate(s=x.STUSPS, xy=x.geometry.centroid.coords[0], ha='center', fontsize=9), axis=1)
-    states_shp.plot(column='{}{}'.format(col_name, year), cmap='Blues', linewidth=1, ax=ax, edgecolor='0.9', legend=True)
-    plt.title('Fatalities in the USA in {}'.format(year))
-    ax.axis('off')
+    try:
+
+        states_shp.apply(lambda x: ax.annotate(s=x.STUSPS, xy=x.geometry.centroid.coords[0], ha='center', fontsize=9), axis=1)
+        states_shp.plot(column='{}{}'.format(col_name, year), cmap='Blues', linewidth=1, ax=ax, edgecolor='0.9', legend=True)
+        plt.title('Fatalities in the USA in {}'.format(year))
+        ax.axis('off')
+    except TypeError:
+        states_shp.apply(lambda x: ax.annotate(text=x.STUSPS, xy=x.geometry.centroid.coords[0], ha='center', fontsize=9),
+                         axis=1)
+        states_shp.plot(column='{}{}'.format(col_name, year), cmap='Blues', linewidth=1, ax=ax, edgecolor='0.9',
+                        legend=True)
+        plt.title('Fatalities in the USA in {}'.format(year))
+        ax.axis('off')
+
 
 
 def group_by_time(df):
