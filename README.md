@@ -29,13 +29,19 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
       ![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/fatality_line.png)
 
       Our assumption is that this is possible because the States became more strict in enforcing restraints in vehicles and hence there were less number of fatalities during this period.
-      ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/restraints.PNG)
       
     2. There is an increase in this rate from 2015
     
         ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/scatterplot.PNG)
         
         Our assumption in this case is that since the gasoline prices saw a decrease in 2016 due to which there is an upward trend in the fatalities, this can be analyzed using the scatter plot as shown
+        
+        ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/restraints.PNG)
+
+        
+   3. From the above graph we can see that injuries/fatalities with restraint use increased significantly after 1984. This might lead us to think that the use of restraint is not working. However, that is not true. The increase in fatalities with restraint use is a result of combination of factors:
+1) It is in the 1980s that most states made the use of restraint mandatory and hence we see a spike here.
+2) Each year, more and more vehicles were on the road which means that even though the fatalities were rising the percentage of fatalities of  the total accidents was still significantly lower.
         
 
 
