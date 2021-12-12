@@ -82,9 +82,15 @@ When the food is in d0 at the end of the day, it becomes a waste.
 
 ## Conclusions
 
-1. The results shows  percentage 
-2. We draw a histogram of all food banks
+1. The simulation results showed that around 40% of food banks have lower waste by the network support.
+2. We draw two histogram showing the distribution of average waste. One presents distrubution of all food banks. The other was filtered by edges in order to closely observe the difference. 
+3. Based on the above results, the network between food banks regarding the sharing supply could lower the food waste in certain degree.
+![image](https://user-images.githubusercontent.com/89559531/145724707-410cc826-b34d-4129-87a0-ccf8f7c4ed8a.png "All_14days_50times_197nodes")
+![image](https://user-images.githubusercontent.com/89559531/145724811-90e5af81-746a-4ad9-a077-4ed460a8548b.png "Nodes With Edges_14days_50times_197nodes")
 
+
+
+[runall] : (https://github.com/kinjal-shah4/2021Fall_finals/blob/main/Histogram%20Of%20Food%20Waste_All_14days_20times_197nodes.png)
 
 ## Discussions
 
@@ -94,6 +100,8 @@ In our simulation, we only use FIFO approach to calculate daily transaction. If 
 Although we didn't focus on the the relation between food waste percentage and food freshness, we still found some trends. The daily percentage of food waste has something to do with the shlef life. It's a simple topic to extend based our current model.
 3. Other scenarios expected to further studying
 The network in our model is created mainly by distance. There are so many scenarios could use this model to test. For example, with the sharing relation, what if one of the sharing partners couldn't work, how the network operates to support each other? Are they able to fulfill normal daily demand? Or, what if some unexpected events destroy certain regions, is the existing network capable to support such urgent demand?
+4. Improve program efficiency
+With our primary purpose of conducting MC simuation, the current version will be better if we make some improvement on efficiency.
 
 
 
