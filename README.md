@@ -1,18 +1,17 @@
 # Fresh Food Supply Network Simulation   
 IS597PR Final Projects – Fall 2021 
 
---- 
+
 
 ### Team Members:
 
----
 
 Candice Chen, Kinjal Shah   
 (GitHub ID: candicechen016, kinjal-shah4)
 
 ## Introduction
 
----
+
 
 >*The USDA estimates that approximately 7.3 billion pounds of produce is wasted in the U.S. each year. The Feeding America network of 200 food banks, in conjunction with 60,000 food pantries and meal programs, would like to see more of those fruits and vegetables go to neighbors in need. ([Feeding America](https://www.feedingamerica.org/hunger-blog/new-produce-matchmaker))*  
 
@@ -21,83 +20,100 @@ So we are interested in how their network operates to lower the fresh food waste
 
 ## Monte Carlo Simulation Scenarios
 
----
-With the uncertain demand and supply of fresh produce in food bank's daily operation, we use Monte Carlo simulation to calculate the percentage of **fresh** food waste in the food bank network. 
 
-So we test these two scenarios:   
-**1. The food banks operates independently.**  
-**2. The food banks operates with extra supply through the network.**
+With the uncertain demand and supply of fresh produce in food bank's daily operation, we use Monte Carlo simulation to calculate the percentage of **fresh** food waste in the food banks network. The distance and the food-insecure population between food banks are two major weights in our design. 
 
-Here are the major terms in the scenarios:
+First, here are some defined terms in the simulation:
 - Demand: number of total food-insecure persons in each food banks
 - Supply: number of total food-secure persons in each food banks
-- Extra supply: 
-
-
-We use two data sets to create our food banks network. The major data set with total population, food-insecure population, and food-secure population in each food banks is from Feeding America. Considering the network
-After combining out data sets with zip codes,  
-
+- Shared supply: units of supply send out by food banks themselves
+- Extra supply: units of supply received from other food banks
 
 ### Hypothesis
 The food waste is lower when the food banks share supply in the network.
 
+In order to test the hypothesis, we focus on the following scenarios:   
+1. The food banks operates independently.   
+2. The food banks operates with extra supply through the network.
+
+### Method
+- We used a NetworkX Graph as our principal data structure to calculate the sharing supply between food banks. 
+- Since the original data set we got from the organization lacked of position, we also took some efforts on data pre-processing before creating the graph.
+- There are 3 data sets in total. The original one includes total population and food-insecure population, which are the critical information to simulate the different scenarios. For the purpose of getting food banks position, we macthed the zip codes with latitude and longitude so that distance between food banks could be calculated. So that's why we need the other data sets.   
+- The seond data set, which we also got from Feeding America, is to get the zip code from address of each food bank. We parsed the information and merged to the first data set then combined with latitude and longitude from the last data set.
+- The graph of food banks network was created with most of information stored in nodes attibutes. On the other hand, edges are added only when food bank A is the nearest neighbor to food bank B, or food bank B is the nearest neighbor to food bank A. Accordingly, some nodes are connected more than once because the distance are also the shortest for others. Distance is the only attribute stored in the edges. 
+- After generating random numbers of supply, we calculated the total supply and beginned the simulation of daily operations, which the percentage of food waste came to our conclusions.
+- By doing these steps multiple times, the final statistic help us justify the hypothesis.
+
+
 ### Assumptions and Variables of Uncertainty
-We use two data sets to create our food banks network. The major data set with total population, food-insecure population, and food-secure population in each food banks is from Feeding America. Considering the network
-After combining out data sets with zip codes,  
-#### Demand -  number of total food-insecure persons in each food banks   
+We use two data sets to create our food banks network. The major data set with total population, food-insecure population, and food-secure population in each food  
+#### Demand - number of total food-insecure persons in each food banks per day 
+#### Supply - units of supply donated by food-secure persons per day 
 
-
-#### Supply - 50% of food secure population in each food banks are potential donors   
+- Use Modified PERT random distribution to both demand and supply.
+- 50% of food secure population are potential donors.
+- Each donor donates a unit of fresh food (e.g. a bag or a box of fruits and vegatables) at least once per ten days. 
+- Each food-insecure person takes a unit of fresh food average 1.6 times per week. 
 
 
 #### Extra Supply
-- Potential percentage of sharing supply: 
-- Actual sharing supply: 
+- Potential percentage of sharing supply: demand_gap_rate = demand_gap / potential_supply_ppl
 
-#### Percentage of Food Waste   
+| demand_gap_rate |  share_supply_rate | 
+| --------------- |:------------------:| 
+|  > 0.2           | 0.1                | 
+|  <= 0.2 or > 0.1 | demand_gap_rate/2  | 
+|  <= 0.1.         | 0.01               | 
+
+  
+- Actual sharing supply: supply * share_supply_rate
+
+#### Level of Freshness
+- Use shelf life to present freshness of any kind of food. If the food will spoiled in 3 three days, we denote as d5.
+When the food is in d0 at the end of the day, it becomes a waste.
 
 #### Daily Operation by LIFO approach  
+- Supply from donors always in the freshest condition, which means the number go to longest days of shelf life.
+- People always have preference to the freshest food, i.e. d3>d2>d1>d0, because these food are free for people in need. So we apply LIFO (Last-In, First-Out) approach in our daily simulations to match real-world situations.
 
-#### Level of freshness
+#### Percentage of Food Waste   
+- (total_waste / total_supply) * 100
 
 ## Conclusions
 
----
-
+1. The results shows  percentage 
+2. We draw a histogram of all food banks
 
 
 ## Discussions
 
----
-1. Daily Operation by LIFO or FIFO approach
-2. Simulate different food freshness
-3. The relation between food waste percentage and food freshness
-4. Further research: shout down scenario
+1. More experiments to explore
+In our simulation, we only use FIFO approach to calculate daily transaction. If food banks have some propotions or encourage people to take same quantity of d0 or d1 produce home. The randomness could be designed in different way. Similarly, the randomness of freshness (shelf life) is defined from the very beginning. Another way is defining in a daily scope.
+2. The relation between food waste percentage and food freshness
+Although we didn't focus on the the relation between food waste percentage and food freshness, we still found some trends. The daily percentage of food waste has something to do with the shlef life. It's a simple topic to extend based our current model.
+3. Other scenarios expected to further studying
+The network in our model is created mainly by distance. There are so many scenarios could use this model to test. For example, with the sharing relation, what if one of the sharing partners couldn't work, how the network operates to support each other? Are they able to fulfill normal daily demand? Or, what if some unexpected events destroy certain regions, is the existing network capable to support such urgent demand?
 
-## Instructions on how to use the program
-
----
 
 
 ## Member Contributions
 
----
 - The project topic, simulation scenarios are done by both team members together.
 - The preprocess_dataset.py is completed by both members. Canice worked on scraping and processing the adress information on the webpage then merged to the food banks data set. Kinjal combined the food banks data sets with external zip code data set to get the latitude and longitude.
 - Functions completed together: add_edges_with_attributes, add_edges_between_nearest_foodbanks
-- Functions independently completed by Candice: create_shelflife_list, generate_random_variables, calculate_share_supply_rate, determine_direction, daily_simulation, mc_simulation
+- Functions independently completed by Candice: create_shelflife_list, generate_random_variables, calculate_share_supply_rate, calculate_actual_share_supply, daily_simulation, mc_simulation
 - Functions independently completed by Kinjal: calculate_distance, create_graph
 
 ## All Sources Used
 
----
 ### Data Source
 - Food Insecurity in The United States   
 [https://map.feedingamerica.org/county/2019/overall/](https://map.feedingamerica.org/county/2019/overall/)  
 (Gundersen, C., M. Hake, A. Dewey, E. Engelhard (2021). The Impact of the Coronavirus on Food Insecurity in 2020 & 2021, Update March 2021. Available from Feeding America: research@feedingamerica.org. )
 - Address of food banks in Feeding America   
 [https://www.feedingamerica.org/find-your-local-foodbank](https://www.feedingamerica.org/find-your-local-foodbank)
-- Zip code with latitude and logitude
+- Zip code with latitude and logitude   
 [https://www.listendata.com/2020/11/zip-code-to-latitude-and-longitude.html](https://www.listendata.com/2020/11/zip-code-to-latitude-and-longitude.html)
 
 ### Reference
