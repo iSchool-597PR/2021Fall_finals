@@ -44,7 +44,29 @@ NHTSA has done a great job in plotting the fatalities in the states of USA for t
 
 ### Hypothesis 1: There are more fatal crashes on weekends (Friday, Saturday, Sunday)
 
-### Hypothesis 2: Fatalities due to drunk driving is independent of time
+### Hypothesis 2: Older models of car leads to more fatalities
+
+Step 1 :
+
+We create a new column in the DataFrame to identify vehicle model as "old", "new" or "Not Available" depending on the year of the model
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_crash.PNG)
+
+Step 2 : 
+
+Let us observe the plots for 2019, 2016 and 2011
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2016.PNG)
+Plot for 2016
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2019.PNG)
+Plot for 2019
+
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2011.PNG)
+Plot for 2011
+
+We can see that there are lot of cases of fatalities in the newer model of the car as compared to the older one, we can hence reject our initial hypothesis since the evidence is strongly suggesting against it. The possibility of this can be that there are more number of people who own newer model of cars 
+
+### Hypothesis 3: Fatalities due to drunk driving is independent of time
 
 Step 1:
 
@@ -70,29 +92,11 @@ Plot for 2011
 
 From this graph we can see that there has been higher number of deaths associated with drunk driving during the time of 9am-11am. We could see that from all these graphs that morning and afternoon times have higher deaths associated with drunk driving. Hence we cannot accept the hypothesis that Fatalities due to drunk driving is independent of time but we also cannot reject this hypothesis since we do not have other conclusive evidence against this hypothesis.
 
-### Hypothesis 3: Older models of car leads to more fatalities
 
-Step 1 :
+### Hypothesis 4: As the day begins to get shorter due to daylight savings, more accidents occur between 4pm-7pm, since it gets dark earlier.
 
-We create a new column in the DataFrame to identify vehicle model as "old", "new" or "Not Available" depending on the year of the model
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_crash.PNG)
 
-Step 2 : 
-
-Let us observe the plots for 2019, 2016 and 2011
-
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2016.PNG)
-Plot for 2016
-
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2019.PNG)
-Plot for 2019
-
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2011.PNG)
-Plot for 2011
-
-We can see that there are lot of cases of fatalities in the newer model of the car as compared to the older one, we can hence reject our initial hypothesis since the evidence is strongly suggesting against it. The possibility of this can be that there are more number of people who own newer model of cars 
-
-### Hypothesis 4: Fatalities are less in vehicles where airbags are deployed
+### Hypothesis 5: Fatalities are less in vehicles where airbags are deployed
 We have also tested our hypothesis
 
 
