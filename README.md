@@ -75,6 +75,7 @@ From this graph we can see that there has been higher number of deaths associate
 Step 1 :
 
 We create a new column in the DataFrame to identify vehicle model as "old", "new" or "Not Available" depending on the year of the model
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_crash.PNG)
 
 Step 2 : 
 
