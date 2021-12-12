@@ -1,11 +1,6 @@
 import pandas as pd
-# import numpy as np
 import matplotlib.pyplot as plt
-# import seaborn as sns
-# import xlrd
-# import openpyxl
 import geopandas
-# from shapely import wkt
 import plotly.express as px
 import kaleido
 
@@ -17,6 +12,16 @@ def read_file(year, filename):
     :param year: value of year of file as input
     :param filename: value of filename in csv to be read
     :return: dataframe obtained from data
+
+    >>> year=2019
+    >>> filename = 'ACCIDENT'
+    >>> print(read_file(year, filename).shape)
+    (33244, 91)
+
+    >>> year = 2010
+    >>> filename = 'CRASH'
+    >>> print(read_file(year, filename).shape)
+    (60, 4)
     """
     file = "data/" + str(year) + "/" + str(filename) + ".csv"
     # file1 = "data/" + str(i) + "/ACCIDENT.csv"f
@@ -36,6 +41,16 @@ def read_file_excel(year, filename, head=0):
     :param filename: value of filename in csv to be read
     :param head: value to be taken as header row for given file
     :return: dataframe obtained from data
+
+    >>> year=2010
+    >>> filename = 'deadliest_day'
+    >>> print(read_file_excel(year, filename).shape)
+    (41, 10)
+
+    >>> year=2015
+    >>> filename = 'vehicle'
+    >>> print(read_file_excel(year, filename).shape)
+    (58, 16)
     """
     file = "data/" + str(year) + "/" + str(filename) + ".xlsx"
     # file1 = "data/" + str(i) + "/ACCIDENT.csv"
@@ -88,6 +103,19 @@ def values(df):
     This function takes a dataframe as input and returns a dictionary of the values.
     :param df: dataframe fromwhihc values will be extracted into a dictionary
     :return total_killed: retrns a dictionary with values to be plotted in fucntion plotpie()
+
+    >>> df = pd.read_excel('data/2010/TSF_Table_65.xlsx',engine='openpyxl', header=4, usecols=['Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3'])
+    >>> df.fillna(method='ffill', inplace=True)
+    >>> df.columns=['Vehicle Type', 'Person Type', 'Occupants Killed']
+    >>> print(len(values(df)))
+    5
+
+    >>> df = pd.read_excel('data/2010/TSF_Table_65.xlsx',engine='openpyxl', header=4, usecols=['Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3'])
+    >>> df.fillna(method='ffill', inplace=True)
+    >>> df.columns=['Vehicle Type', 'Person Type', 'Occupants Killed']
+    >>> dict1=values(df)
+    >>> print(dict1['Passenger Car'])
+    12491.0
     """
 
     total_killed = {}
@@ -131,11 +159,10 @@ def states_shape_merge(df, year):
     This function merges teh dataframe on he geopandas dataframe
     :param df: year dataframe to be merged
     :param year: year value to be used as a new column name for merged dataframe
-    :return states_shp: merged dataframe
+    :return: merged dataframe
     """
     states_shp = geopandas.read_file('data/geopandas/usa-states-census-2014.shp')
     states_shp = states_shp.merge(df[year], on="NAME")
-    # states_shp['fatalities{}'.format(year)] = states_shp['fatalities{}'.format(year)].str.replace(',', '').astype(int)
     return states_shp
 
 
@@ -198,7 +225,18 @@ def group_by_time(df):
     """
     This function takes a dataframe to be divided based on timeslots and returns a dictionary
     :param df: dataframe to be sorted into different timeslots
-    :return dict_by_time: dictionary of dataframe based on time slot is returned.
+    :return: dictionary of dataframe based on time slot is returned.
+    
+    >>> person_year = read_file(2019, "PERSON")
+    >>> drink_yes_no = person_year[["DRINKING", "INJ_SEV", "HOUR"]]
+    >>> drink_drive = drink_yes_no
+    >>> drink_drive = drink_drive[(drink_drive["INJ_SEV"] == 4) | (drink_drive["INJ_SEV"] == 2)]
+    >>> drunk_drive_yes = drink_drive[drink_drive["DRINKING"]== 1]
+    >>> dict_times_drunk = group_by_time(drunk_drive_yes)
+    >>> print(len(dict_times_drunk))
+    8
+    >>> print(dict_times_drunk['9pm - 11:59pm'])
+    1384
     """
     time_slots = ['12am - 2:59am', '3am - 5:59am', '6am - 8:59am', '9am - 11:59am',
                   '12pm - 2:59pm', '3pm - 5:59pm', '6pm - 8:59pm', '9pm - 11:59pm']
