@@ -8,11 +8,11 @@ Here are few things NHTSA could have done better in order to incorporate a much 
 
 1. They plotted only the number of fatalities in each state of the USA 
 
-![Screenshot](Map_NHTSA.png)
+![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/Map_NHTSA.png)
 
 This is a perfect graph if we want to analyze just the fatalities but it would make much more sense to Normalize this data with the number of vehicles that are owned by people in a particular state to get a better relative understanding of the severity of crashes beyond the evident data infront of us
 
-![Screenshot](Normalized_NHTSA.png)
+![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/Normalized_NHTSA.png)
 
 This is a Normalized Chloropleth plot of the fatalities which takes into consideration the number of vehicles in each state.
 
@@ -26,13 +26,13 @@ This is a Normalized Chloropleth plot of the fatalities which takes into conside
 
     1. There is a steep decrease in the fatality rate per 100 Million VMT from 1980 till around 2015.
       
-      ![Screenshot](fatality_line.png)
+      ![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/fatality_line.png)
 
       Our assumption is that this is possible because the States became more strict in enforcing restraints in vehicles and hence there were less number of fatalities during this period.
       
     2. There is an increase in this rate from 2015
     
-        ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/scatterplot.PNG)
+        ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/scatterplot.PNG)
         
         Our assumption in this case is that since the gasoline prices saw a decrease in 2016 due to which there is an upward trend in the fatalities, this can be analyzed using the scatter plot as shown
         
@@ -49,19 +49,19 @@ NHTSA has done a great job in plotting the fatalities in the states of USA for t
 Step 1 :
 
 We create a new column in the DataFrame to identify vehicle model as "old", "new" or "Not Available" depending on the year of the model
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_crash.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/model_crash.PNG)
 
 Step 2 : 
 
 Let us observe the plots for 2019, 2016 and 2011
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2016.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/model_2016.PNG)
 Plot for 2016
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2019.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/model_2019.PNG)
 Plot for 2019
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/model_2011.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/model_2011.PNG)
 Plot for 2011
 
 We can see that there are lot of cases of fatalities in the newer model of the car as compared to the older one, we can hence reject our initial hypothesis since the evidence is strongly suggesting against it. The possibility of this can be that there are more number of people who own newer model of cars 
@@ -81,13 +81,13 @@ Step 2:
 
 Let us observe the plots for 2019, 2016 and 2011
 
-![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/drunk_death_2019.PNG)
+![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/drunk_death_2019.PNG)
 Plot for 2019
 
-![Screenshot](drunk_death_2016.jpeg)
+![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/drunk_death_2016.jpeg)
 Plot for 2016
 
-![Screenshot](drunk_death_2011.jpeg)
+![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/model_2011.PNG)
 Plot for 2011
 
 From this graph we can see that there has been higher number of deaths associated with drunk driving during the time of 9am-11am. We could see that from all these graphs that morning and afternoon times have higher deaths associated with drunk driving. Hence we cannot accept the hypothesis that Fatalities due to drunk driving is independent of time but we also cannot reject this hypothesis since we do not have other conclusive evidence against this hypothesis.
