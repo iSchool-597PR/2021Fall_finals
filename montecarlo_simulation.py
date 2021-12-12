@@ -10,9 +10,9 @@ from geopy.distance import geodesic
 import matplotlib.pyplot as plt
 
 
-def calculate_distance(node1: tuple, node2: tuple):
+def calculate_distance(node1: tuple, node2: tuple) -> float:
     """
-    This function calculates distance between any two food banks
+    This function calculates distance between any two food banks.
     :param node1: dataframe with latitude and longitude values
     :param node1: food bank 1
     :param node2: food bank 2
@@ -21,27 +21,33 @@ def calculate_distance(node1: tuple, node2: tuple):
     return geodesic(node1, node2).km
 
 
-def create_graph(df: pd.DataFrame, g: nx.DiGraph) -> None:
+def create_graph(df: pd.DataFrame) -> nx.Graph:
     """
-    Creat graph from the dataframe.
-    :param df:
-    :param g:
-    :return:
+    Create graph from the dataframe with particular attributes, such as food-insecure population.
+    :param df: dataframe from the data set
+    :return: a graph with nodes and their attributes
     """
-
+    g = nx.Graph()
     df = df.set_index('ID')
     attrs = df.to_dict('index')
     g.add_nodes_from(df.index)
     nx.set_node_attributes(g, attrs)
+    return g
 
-def create_shelflife_list(days: int) -> list:
+def create_shelflife_list() -> list:
     """
-    Create a list to show level of freshness.
+    Create a list to show level of freshness by randomly selecting 3 to 7 days.
     For example, d3 means the food will spoil in 3 days.
-     labels of shelf_life in daily simulation.
-    :param days:
     :return: a list of labels for daily simulation
+
+    >>> len(create_shelflife_list(5))
+    5
+    >>> shelf = create_shelflife_list(4)
+    >>> shelf[-1]
+    'd0'
     """
+    day_list = [3, 4, 5, 6, 7]
+    days = int(np.random.choice(day_list, 1))
 
     shelf_life = []
     for d in range(days, -1, -1):
@@ -81,7 +87,7 @@ def mod_pert_random(low, likely, high, confidence=4, samples=1):
     beta = beta * (high - low) + low
     return beta
 
-def generate_random_variables(g: nx.DiGraph, node: int, variable_type: str, days=7) -> np.array:
+def generate_random_variables(g: nx.Graph, node: int, variable_type: str, days=7) -> np.array:
     """
     To generate random supply or demand for a single food bank by Modified PERT distribution in particular days.
     For the supply side, we assume the lowest frequency of supply is once per 10 days.
@@ -93,152 +99,160 @@ def generate_random_variables(g: nx.DiGraph, node: int, variable_type: str, days
     The reference of the fact that an average of 1.6 shopping trips per week for each person:
     https://www.statista.com/statistics/251728/weekly-number-of-us-grocery-shopping-trips-per-household/
 
-    :param g:
-    :param node:
+    :param g: graph with attributes
+    :param node: node in a graph
     :param variable_type: demand or supply
-    :param days:
-    :return:
+    :param days: to generate same number of random variables
+    :return: an array random numbers
+
+    >>> gh = nx.Graph
+    >>> df_regional.to_dict('index')
+    {1: {'Food Bank': 'High Plains Food Bank', 'ID': 2, 'Total Population': 475188.0, '2021 Food Insecurity %': 0.161,
+    '2021 Food Insecurity #': 76360, 'state_y': 'Texas', 'statecode': 'TX', 'latitude': 35.1964, 'longitude': -101.8034},
+    ... 'latitude': 31.6446, 'longitude': -106.2737}}
+
+    >>> gh.add_nodes_from(adict)
+    >>> gh[1]['2021 Food Insecurity #']
+    TypeError
+    >>> gh[0] is None
+    True
+
     """
     node_ppl = g.nodes[node]['Total Population']
     insecure_ppl = g.nodes[node]['2021 Food Insecurity #']
     potential_supply_ppl = (node_ppl - insecure_ppl) * 0.5
-
-    demand = np.rint(mod_pert_random((1 / 7) * insecure_ppl, (1.6 / 7) * insecure_ppl, insecure_ppl,
-                                     samples=days))
-    supply = np.rint(mod_pert_random((1 / 10) * potential_supply_ppl, (1 / 7) * potential_supply_ppl,
-                                     (1 / 3) * potential_supply_ppl, samples=days))
-
     if variable_type == 'demand':
+        demand = np.rint(mod_pert_random((1 / 7) * insecure_ppl, (1.6 / 7) * insecure_ppl, insecure_ppl, samples=days))
         return demand
-    else:
+
+    if variable_type == 'supply':
+        supply = np.rint(mod_pert_random((1 / 10) * potential_supply_ppl, (1 / 7) * potential_supply_ppl,
+                                         (1 / 3) * potential_supply_ppl, samples=days))
         return supply
+
 
 def calculate_share_supply_rate(demand_gap_rate: float) -> float:
     """
     We design a method to decide the actual proportion of share supply to neighbors.
-    :param demand_gap_rate:
-    :return:
+    use the percentage of demand_gap over potential_supply_ppl as the potential share supply to neighbor
+    :param demand_gap_rate: a float number caculated from two food banks's demand and supply
+    :return: a float number
     """
-    #
+
     if demand_gap_rate > 0.2:
         rate = 0.1
-    elif 0.1 < demand_gap_rate < 0.2:
+    elif 0.1 < demand_gap_rate <= 0.2:
         rate = demand_gap_rate / 2
     else:
         rate = 0.01
     return rate
 
-def determine_direction(demand_gap: int, node1: int, node2: int) -> tuple:
+
+def calculate_actual_share_supply(g: nx.Graph) -> None:
     """
-    To determine the direction of edge that is going to added.
+    This function calculate the sharing supply between two food banks.
     The food bank with higher demand indicate extra supply needed,
     so the other would share a proportion of their supply based on the demand gap.
-    :param demand_gap:
-    :param node1:
-    :param node2:
-    :return:
-    """
-
-    if demand_gap > 0:
-        share_supply = node1
-        receive_supply = node2
-    else:
-        share_supply = node2
-        receive_supply = node1
-        demand_gap = abs(demand_gap)
-    return share_supply, receive_supply, demand_gap
-
-
-def add_edges_with_attributes(g: nx.DiGraph, node_out: int, node_in: int, demand_gap: int, distance: float) -> None:
-    """
-    If edges don't exist, add the current neighbor with the share proportion of supply as attribute.
     :param g:
-    :param node_out:
-    :param node_in:
-    :param demand_gap:
-    :param distance:
     :return:
+    >>> for node1, node2 in list(g.edges):
+    >>>     j, k  = node1, node2
+    >>>     break
+    >>> graph[j]['share_supply'] == graph[k]['extra_supply'] or graph[j]['extra_supply'] == graph[k]['share_supply']
+    True
+
     """
 
-    # calculate the gap of food insecure population between two food banks as an edge attribute
-    node_ppl = g.nodes[node_out]['Total Population']
-    insecure_ppl_node = g.nodes[node_out]['2021 Food Insecurity #']
-    potential_supply_ppl = (node_ppl - insecure_ppl_node) * 0.5
+    for node1, node2 in list(g.edges(data=False)):
+        # calculate the gap of food insecure population between two food banks
+        insecure_ppl_node = g.nodes[node1]['2021 Food Insecurity #']
+        insecure_ppl_neighbor = g.nodes[node2]['2021 Food Insecurity #']
+        demand_gap = insecure_ppl_node - insecure_ppl_neighbor
+        # the neighbors with same population are in similar demand and supply so we ignore them
+        if demand_gap == 0:
+            continue
+        elif demand_gap > 0:
+            share_supply_node = node1
+            receive_supply_node = node2
+        else:
+            share_supply_node = node2
+            receive_supply_node = node1
+            demand_gap = abs(demand_gap)
 
-    # use the percentage of demand_gap over potential_supply_ppl as the potential share supply to neighbor
-    demand_gap_rate = demand_gap / potential_supply_ppl
-    # we design a method to decide the actual proportion of share supply to neighbors
-    share_supply_rate = calculate_share_supply_rate(demand_gap_rate)
+        node_ppl = g.nodes[share_supply_node]['Total Population']
+        insecure_ppl_node = g.nodes[share_supply_node]['2021 Food Insecurity #']
+        potential_supply_ppl = (node_ppl - insecure_ppl_node) * 0.5
+        # use the percentage of demand_gap over potential_supply_ppl as the potential share supply to neighbor
+        demand_gap_rate = demand_gap / potential_supply_ppl
+        # we design a method to decide the actual proportion of share supply to neighbors
+        share_supply_rate = calculate_share_supply_rate(demand_gap_rate)
+        actual_share_supply = np.rint(g.nodes[share_supply_node]['supply'] * share_supply_rate)
+        share_supply_update = g.nodes[share_supply_node]['share_supply'] + actual_share_supply
+        extra_supply_update = g.nodes[receive_supply_node]['extra_supply'] + actual_share_supply
+        # update node attribute after sharing
+        nx.set_node_attributes(g, {share_supply_node: {'share_supply': share_supply_update},
+                                   receive_supply_node: {'extra_supply': extra_supply_update}})
 
-    supply = generate_random_variables(g, node_out, 'supply')
-    actual_share_supply = np.rint(supply * share_supply_rate)
-    supply -= actual_share_supply
-    # set one more node attribute for the supply after sharing
-    nx.set_node_attributes(g, {node_out: {'supply': supply}})
-    g.add_edge(node_out, node_in, distance=round(distance, 3), share_supply=actual_share_supply)
 
-
-def add_edges_between_nearest_foodbanks(g: nx.DiGraph, list_of_nodes: list, distance_threshold=120) -> None:
+def add_edges_between_nearest_foodbanks(g: nx.Graph, distance_threshold=120) -> None:
     """
     The edges are added only when the distance between two nodes are the shortest.
-    :param g:
-    :param list_of_nodes:
-    :param distance_threshold:
-    :return:
+    :param g: the graph
+    :param distance_threshold: set a threshold of distance to create edges
     """
-    for i in range(len(list_of_nodes)):
+
+    list_of_nodes = list(g.nodes)
+    for i in list_of_nodes:
         # initial distance and neighbor
         nearest = distance_threshold
         neighbor = 0
-        node1 = g.nodes[list_of_nodes[i]]['latitude'], g.nodes[list_of_nodes[i]]['longitude']
-        for fb in list_of_nodes[i + 1:]:
+        node1 = g.nodes[i]['latitude'], g.nodes[i]['longitude']
+        other_nodes = list_of_nodes.copy()
+        other_nodes.remove(i)
+        for fb in other_nodes:
             node2 = g.nodes[fb]['latitude'], g.nodes[fb]['longitude']
             distance = geodesic(node1, node2).km
             # find shortest distance
             if distance < nearest:
                 nearest = distance
                 neighbor = fb
-
         if neighbor != 0:
-            # determine the direction: the food bank with higher demand indicate extra supply needed
-            # so the other would share a proportion of their supply based on the demand gap
-            insecure_ppl_node = g.nodes[list_of_nodes[i]]['2021 Food Insecurity #']
-            insecure_ppl_neighbor = g.nodes[neighbor]['2021 Food Insecurity #']
-            demand_gap = insecure_ppl_node - insecure_ppl_neighbor
-            # the neighbors with same population since they are in similar demand and supply so we ignore them
-            if demand_gap == 0:
-                continue
-            share_supply, receive_supply, demand_gap = determine_direction(demand_gap, list_of_nodes[i], neighbor)
-
-            # check if edges exists because we only keep the nearest one for out_edge
-            if len(g.edges(share_supply)) > 0:
-                # compare the distance
-                for adj in list(g.adj[share_supply]):
-                    if g.edges[share_supply, adj]['distance'] > nearest:
-                        g.remove_edge(share_supply, adj)
-                    else:
-                        continue
-            # if edges don't exist, add the current neighbor with the share proportion of supply as attribute
-            add_edges_with_attributes(g, share_supply, receive_supply, demand_gap, nearest)
+            g.add_edge(i, neighbor, distance=round(nearest, 3))
 
 
-def daily_simulation(g: nx.DiGraph, node: int, supply: np.array, days=7) -> float:
+def initiate_random_supply(g: nx.Graph, days: int) -> None:
+    """
+    Initiate random supply for each food bank before daily operation or calculate sharing supply.
+    This initial number will be stored in the graph as attributes of nodes.
+    :param g:
+    :param days:
+    >>> initiate_random_supply(graph, 20)
+    >>> len(graph[1]['supply']) == 20
+    True
+    """
+    list_of_nodes = list(g.nodes)
+    for node in list_of_nodes:
+        supply = generate_random_variables(g, node, 'supply', days)
+        nx.set_node_attributes(g, {node: {'supply': supply, 'share_supply': 0, 'extra_supply': 0}})
+
+
+def daily_simulation(g: nx.Graph, node: int, supply: np.array, days=7) -> float:
     """
     This is our primary simulation module for single food bank with daily update outputs.
-    :param g:
-    :param node:
-    :param supply:
-    :param days:
-    :return:
+    :param g: the graph
+    :param node: the food bank to simulate
+    :param supply: total supply = supply - shared supply + add extra supply
+    :param days: days to run for a cycle
+    :return: percentage of food waste after operating many days
     """
 
-    shelf_life = create_shelflife_list(3)
+    shelf_life = create_shelflife_list()
 
     supply_initial = generate_random_variables(g, node, 'supply', days=len(shelf_life))
     food_balance = pd.DataFrame(supply_initial, index=shelf_life, columns=['Balance'])
     food_balance.index.name = 'Shelf_life'
 
-    demand = generate_random_variables(g, node, 'demand')
+    demand = generate_random_variables(g, node, 'demand', days)
 
     # initiate total waste and supply
     waste = 0
@@ -277,52 +291,45 @@ def daily_simulation(g: nx.DiGraph, node: int, supply: np.array, days=7) -> floa
 
     return waste_percentage
 
-def mc_simulation(g: nx.DiGraph, times_to_run: int, network_supply: int) -> pd.DataFrame:
+def mc_simulation(g: nx.Graph, times_to_run: int, network_supply: int, days=7) -> pd.DataFrame:
     """
     To simulate multiple times for two scenarios.
-    :param g:
-    :param times_to_run:
-    :param network_supply:
-    :return:
+    :param g: the graph
+    :param times_to_run: a number defined by user's input
+    :param network_supply: 0: independent, 1: network
+    :param days: days to run for a cycle
+    :return: an overall results stored in a dataframe
     """
 
     count = 0
-    result = pd.DataFrame(nodes)
+    list_of_nodes = list(g.nodes)
+
+    # creat a dataframe to store the results
+    result = pd.DataFrame(index=list_of_nodes)
 
     while count < times_to_run:
         nodes_results = []
-        supply = None
-        for node in nodes:
-            if network_supply == 0:
-                supply = generate_random_variables(g, node, 'supply')
-            if network_supply == 1:
-                all_neighbors = list(nx.all_neighbors(g, node))
-                # single nodes without neighbors
-                if len(all_neighbors) == 0:
-                    supply = generate_random_variables(g, node, 'supply')
-                # nodes with neighbors
-                else:
-                    extra_supply = 0
-                    for neighbor in all_neighbors:
-                        if g.has_predecessor(node, neighbor):
-                            extra_supply += g.edges[neighbor, node]['share_supply']
-                        else:
-                            supply = g.nodes[node]['supply']
+        total_supply = None
+        for node in list_of_nodes:
+            if network_supply == 0:  # without network
+                total_supply = g.nodes[node]['supply']
+            if network_supply == 1:   # with network
+                supply = g.nodes[node]['supply']
+                extra_supply = g.nodes[node]['extra_supply']
+                share_supply = g.nodes[node]['share_supply']
+                total_supply = supply + extra_supply - share_supply
 
-                    if supply is None:
-                        supply = generate_random_variables(g, node, 'supply')
-                    # sum up supply
-                    supply += extra_supply
-
-            waste_percentage = daily_simulation(g, node, supply, days=7)
+            waste_percentage = daily_simulation(g, node, total_supply, days)
             nodes_results.append(waste_percentage)
 
-        result[count+1] = nodes_results
+        result = pd.concat([result, pd.Series(nodes_results, name=count+1,index=result.index)], axis=1)
         count += 1
+    # calculate mean percentage of food waste
+    result_avg = result.mean(axis=1)
+    result_avg.name = "Average"
+    result = pd.concat([result, result_avg], axis=1)
 
-    result = result.set_index([0])
-
-    return result.T
+    return result
 
 
 if __name__ == '__main__':
@@ -330,41 +337,115 @@ if __name__ == '__main__':
     df_all = pd.read_csv('foodbank_with_latlon.csv',
                          usecols=['Food Bank', 'ID', 'Total Population', '2021 Food Insecurity %',
                                   '2021 Food Insecurity #', 'latitude', 'longitude', 'state_y', 'statecode'])
-
-    mask = ['TX', 'FL', 'GA', 'MO', 'AR', 'LA', 'TN', 'AL', 'OK', 'MS', 'CA', 'OH', 'NY', 'IN', 'PA']
+    # we select some states with more food banks or wth higher food_insecure percentage
+    mask = ['TX', 'FL', 'GA', 'MO', 'AR', 'LA', 'TN', 'AL', 'OK', 'MS', 'OH', 'IN', 'PA', 'NY', 'CA']
     df_regional = df_all[df_all.statecode.isin(mask)]
 
-    graph = nx.DiGraph()
-    create_graph(df_regional, graph)
-    # create_graph(df_all, graph)
-    days_to_run = 7
+    print("There are 197 food banks in our network. ")
+    print("We selected some food banks by states with higher food-insecure percentage or more branches in one state.")
 
-    nodes = list(graph.nodes)
-    add_edges_between_nearest_foodbanks(graph, nodes, distance_threshold=120)
+    # codes of input ideas from previous students project
+    # https://github.com/saloneeshah/Final-Project/blob/master/GoalkeeperSuccessRateSimulation_Final.py
+    input_check = 1
+    while input_check == 1:
+        try:
+            # define the number of days as a period to calculate food waste
+            run_all = int(input("Do you want to [1] run all [2] select fewer? "))
 
-    food_waste_without_network = mc_simulation(graph, times_to_run=15, network_supply=0)
-    food_waste_with_network = mc_simulation(graph, times_to_run=15, network_supply=1)
+            if run_all in [1, 2]:
+                input_check = 0
+                break
+            else:
+                print('Please enter a valid integer.')
+                continue
 
-    print(food_waste_without_network)
-    print(food_waste_with_network)
+        except ValueError:
+            print('Please enter a valid integer.')
 
-    # TODO: plots
+    input_check = 1
+    while input_check == 1:
+        try:
+            # define the number of days as a period to calculate food waste
+            days_to_run = int(input("\nEnter the number of days as a cycle to calculate food waste: "))
+            input_check = 0
+        except ValueError:
+            print('Please enter a valid integer.')
 
-    # fig, (ax0, ax1) = plt.subplots(2, 1, figsize=(20, 16))
-    # plt.subplots_adjust(hspace=.5)
+    input_check = 1
+    while input_check == 1:
+        try:
+            test_times = int(input("Enter the number of times to repeat the entire program: "))
+            input_check = 0
+        except ValueError:
+            print('Please enter a valid integer.')
 
-    plt.figure(figsize=(20, 12))
-    plt.title('food_waste_without_network')
-    plt.hist(food_waste_without_network.iloc[:, 0:2], bins=20)
-    plt.xlabel('Food Waste %')
-    plt.ylabel('Number of Times')
-    plt.legend()
-    # plt.show()
+    print('\nNow, the program is running for you...\n')
 
-    plt.figure(figsize=(20, 12))
-    # plt.title('food_waste_with_network')
-    plt.hist(food_waste_with_network.iloc[:, 0:2], bins=20)
-    # plt.xlabel('Number of simulations')
-    # plt.ylabel('Food Waste %')
-    plt.legend()
-    # plt.show()
+    if run_all == 1:
+        df_to_run = df_all
+    else:
+        df_to_run = df_regional
+
+
+    graph = create_graph(df_to_run)
+    # assign each food bank with an array of random supply regarding their food-secure population
+    initiate_random_supply(graph, days_to_run)
+    # calculate distance between every pair of food banks
+    add_edges_between_nearest_foodbanks(graph, distance_threshold=120)
+    calculate_actual_share_supply(graph)
+
+    # run simulations for the scenarios
+    food_waste_without_network = mc_simulation(graph, times_to_run=test_times, network_supply=0, days=days_to_run)
+    food_waste_with_network = mc_simulation(graph, times_to_run=test_times, network_supply=1, days=days_to_run)
+    # create a dataframe to store overall results
+    df_avg_results = pd.concat([food_waste_without_network["Average"], food_waste_with_network["Average"]],
+                               axis=1, keys=['Independent', 'Network'])
+    # check if the average food waste is lower by subtracting the number of Independent from Network
+    gap = food_waste_with_network["Average"] - food_waste_without_network["Average"]
+    number_of_decrease = food_waste_with_network.groupby(gap < 0).size()[1]
+    decrease_rate = round(((number_of_decrease / len(df_avg_results)) * 100), 3)
+
+    print('\n===== {} Days Summary by Running {} Times =====\n'.format(days_to_run, test_times ))
+    print('The number of food banks with lower food waste after sharing: {} / {}'.format(number_of_decrease, len(df_avg_results)))
+    print('The percentage of food banks in total with lower food waste: {}% \n'.format(decrease_rate))
+    print(df_avg_results.reset_index(drop=True))
+
+    # draw histogram
+    # idea of plots is referred to https://www.dataindependent.com/pandas/pandas-histogram/
+
+    # define for titles in figures and the output file name
+    title = 'Histogram Of Food Waste'
+    filename = '_{}days_{}times_{}nodes'.format(days_to_run, test_times, len(df_avg_results))
+    plt.figure()
+    ax1 = df_avg_results.reset_index(drop=True).plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True,
+                                                     figsize=(28, 16), fontsize=20)
+
+    ax1.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
+    ax1.set_ylabel('Number of Food Banks', fontdict={'fontsize': 20})
+    ax1.legend(fontsize=20)
+    ax1.set_title(title+'_All'+filename, pad=20, fontdict={'fontsize': 24})
+    ax1.get_figure().savefig(fname=title+'_All'+filename)
+
+    # to get the nodes with edges
+    degree_dict = dict(graph.degree)
+    nodes_with_edge=[]
+    for k in degree_dict.keys():
+        if degree_dict[k] >= 1:
+            nodes_with_edge.append(k)
+
+
+    print('\n===== {} Days Summary of Food Banks With Sharing Relation =====\n'.format(days_to_run))
+    # to plot the result by filtering the nodes with edge
+    df_edges = df_avg_results[df_avg_results.index.isin(nodes_with_edge)].reset_index(drop=True)
+    print(df_edges)
+
+
+    plt.figure()
+    ax2 = df_edges.plot(kind='hist', alpha=0.7, bins=30, rot=45, grid=True, figsize=(28, 16),
+                        color=['#A0E8AF', '#FFCF56'])
+
+    ax2.set_xlabel('The Percentage of Fresh Food Waste (%)', fontdict={'fontsize': 20})
+    ax2.set_ylabel('Number of Food Banks', fontdict={'fontsize': 20})
+    ax2.legend(fontsize=20)
+    ax2.set_title(title+'_Nodes With Edges'+filename, pad=20, fontdict={'fontsize': 24})
+    ax2.get_figure().savefig(fname=title+'_Nodes With Edges'+filename)
