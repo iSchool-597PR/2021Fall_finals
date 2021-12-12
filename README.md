@@ -16,7 +16,7 @@ This is a perfect graph if we want to analyze just the fatalities but it would m
 
 ![Screenshot](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/Normalized_NHTSA.png)
 
-This is a Normalized Chloropleth plot of the fatalities which takes into consideration the number of vehicles in each state.
+This is a Normalized Chloropleth plot of the fatalities which takes into consideration the number of vehicles in each state. Plotting choloropleth allows reader to easily see which state has the highest fatality rate instead of reading the number and comparing.
 
 
 2. They have plotted data for the year of 2019 but if we want to do a year by year analysis, it's not possible tounderstand that using their analysis. Even in their previous editions they have different graphs, hence it becomes difficult to analyze the changes and trends from the previous years which could allow decision makers to take reasonable and proper action. We have allowed the user to have the liberty to enter the year they want which allows them to do a comparitive analysis via the graph which will provide a uniformity in comparison.
@@ -161,4 +161,14 @@ Plot for fatalities when airbags were deployed vs when airbags were not deployed
 ![](https://github.com/prayagpatel99/2021Fall_finals/blob/main/Plotly%20graphs/hypothesis_5_2011.png)
 Plot for fatalities when airbags were deployed vs when airbags were not deployed for the year 2011
 
-Here, we see that except for the year 2019 vehicles, most of the years where airbags have been deployed has seen more number of fatalities as compared to the vehicles where airbags have not been deployed, hence we reject our initial hypothesis. This result helps us understand that there are lot more factors involved when there is a crash apart from the deployment of airbag which could lead to fatal injuries.
+Here, we see that except for the year 2019 vehicles, most of the years where airbags have been deployed has seen more number of fatalities as compared to the vehicles where airbags have not been deployed, hence we reject our initial hypothesis. This result helps us understand that there are lot more factors involved which could lead to fatal injuries when there is a crash apart from deployment of airbag.
+
+### REFERENCE
+
+https://www.nhtsa.gov/file-downloads?p=nhtsa/downloads/FARS/
+
+https://cdan.dot.gov/
+
+https://cdan.nhtsa.gov/tsftables/tsfar.htm#
+
+https://jcutrer.com/python/learn-geopandas-plotting-usmaps
