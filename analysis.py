@@ -167,6 +167,7 @@ def chloropleth(states_shp, col_name, year):
     plt.title('Fatalities in the USA in {}'.format(year))
     ax.axis('off')
 
+
 def group_by_time(df):
     """
     This fucntion takes a dataframe to be divided based on timeslots and returns a dictionary
@@ -179,3 +180,15 @@ def group_by_time(df):
         df.loc[(df['HOUR'] >= hour) & (df['HOUR'] < hour + 3), 'category'] = time_slots[int(hour / 3)]
     dict_by_time = dict(df["category"].value_counts())
     return dict_by_time
+
+
+def group_by_plot_bar(df_list, df_name_list):
+    for i in range(0,2):
+        df_counts = df_list[i].groupby(['HOUR']).count()
+        df_counts.reset_index(inplace = True)
+        df_counts.groupby(['HOUR']).mean().plot(kind='bar', legend=False, layout=(i,0))
+        plt.yticks(range(0,3000,500))
+        plt.title("{}".format(df_name_list[i]), fontsize = 15)
+        plt.xlabel("Hours", fontsize = 15)
+        plt.ylabel("Fatalities", fontsize = 15)
+    plt.show()
