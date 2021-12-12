@@ -9,6 +9,13 @@ import geopandas
 import plotly.express as px
 
 def read_file(year, filename):
+    """
+    Returns the dataframe based on the string filename and year input.
+    Used for .csv file format.
+    :param year: value of year of file as input
+    :param filename: value of filename in csv to be read
+    :return: dataframe obtained from data
+    """
     file = "data/" + str(year) + "/" + str(filename) + ".csv"
     # file1 = "data/" + str(i) + "/ACCIDENT.csv"
     try:
@@ -20,6 +27,14 @@ def read_file(year, filename):
 
 
 def read_file_excel(year, filename, head=0):
+    """
+    Returns the dataframe based on the string filename and year input.
+    Used for .xlsx file format.
+    :param year: value of year of file as input
+    :param filename: value of filename in csv to be read
+    :param head: value to be taken as header row for given file
+    :return: dataframe obtained from data
+    """
     file = "data/" + str(year) + "/" + str(filename) + ".xlsx"
     # file1 = "data/" + str(i) + "/ACCIDENT.csv"
     try:
@@ -31,6 +46,12 @@ def read_file_excel(year, filename, head=0):
 
 
 def bar_line_chart(df, graph_details):
+    """
+    Takes dataframe as input and plots a bar chart and line chart.
+    :param df: takes the dataframe to be plotted.
+    :param graph_details: dictionary of values with graph details - start_year, xlabel, ylabel, line_bar_key
+    :return: plots a bar chart and line chart of given values
+    """
     x = []
     for year in range(graph_details["start_year"], 2020, 2):
         x.append(year)
@@ -47,11 +68,23 @@ def bar_line_chart(df, graph_details):
 
 
 def plot_line(df, col1, col2):
+    """
+    This fucntion takes a dataframe and range of columnn numbers to plot a line chart.
+    :param df: dataframe with values to be plotted
+    :param col1: 1st column number for range of values to be plotted
+    :param col2: (2nd column number-1) for range of values to be plotted
+    :return: plots a line chart  
+    """
     fig = px.line(df, x="Year", y= df.columns[col1:col2])
     fig.show()
 
 
 def values(df):
+    """
+    This function takes a dataframe as input and returns a dictionary of the values.
+    :param df: dataframe fromwhihc values will be extracted into a dictionary
+    :return total_killed: retrns a dictionary with values to be plotted in fucntion plotpie()
+    """
     total_killed = {}
     for index, row in df.iterrows():
         if (row['Vehicle Type'] != 'Total') and (row['Person Type'] == 'Subtotal'):
@@ -65,6 +98,12 @@ def values(df):
 
 
 def plotpie(dict1, year):
+    """
+    This fucntion takes a dictionary and year number to be plotted as a pie chart
+    :param dict1: dictionary of values to be plotted
+    :param year: value of year to be displayed as title
+    :return: plots a pie chart from given values
+    """
     labels = []
     number = []
     plt.figure(1, figsize=(7, 7))
@@ -83,7 +122,12 @@ def plotpie(dict1, year):
 
 
 def states_shape_merge(df, year):
-
+    """
+    This function merges teh dataframe on he geopandas dataframe
+    :param df: year dataframe to be merged
+    :param year: year value to be used as a new column name for merged dataframe
+    :return states_shp: merged dataframe
+    """
     states_shp = geopandas.read_file('data/geopandas/usa-states-census-2014.shp')
     states_shp = states_shp.merge(df[year], on="NAME")
     # states_shp['fatalities{}'.format(year)] = states_shp['fatalities{}'.format(year)].str.replace(',', '').astype(int)
@@ -91,6 +135,13 @@ def states_shape_merge(df, year):
 
 
 def percent_change_plot(states_shp, col_name, year):
+    """
+    This function takes states_shp dataframe, col_name and year to plot a map of percent change
+    :param states_shp: merged geopandas dataframe
+    :param col_name: name of column name values to be plotted (percent_change in this case)
+    :param year: values of year to be plotted
+    :return: plots a map of the areas with fatalities
+    """
     fig = plt.figure(1, figsize=(25, 15))
     ax = fig.add_subplot()
     states_shp.apply(lambda x: ax.annotate(
@@ -103,6 +154,13 @@ def percent_change_plot(states_shp, col_name, year):
 
 
 def chloropleth(states_shp, col_name, year):
+    """
+    This function takes states_shp dataframe, col_name and year to plot a chloropleth map of fatalities count
+    :param states_shp: merged geopandas dataframe
+    :param col_name: name of column name values to be plotted (fatalities in this case)
+    :param year: values of year for which values will be plotted
+    :return: plots a map of the areas with fatalities
+    """
     fig, ax = plt.subplots(1, figsize=(12, 8))
     states_shp.apply(lambda x: ax.annotate(s=x.STUSPS, xy=x.geometry.centroid.coords[0], ha='center', fontsize=9), axis=1)
     states_shp.plot(column='{}{}'.format(col_name, year), cmap='Blues', linewidth=1, ax=ax, edgecolor='0.9', legend=True)
@@ -110,6 +168,11 @@ def chloropleth(states_shp, col_name, year):
     ax.axis('off')
 
 def group_by_time(df):
+    """
+    This fucntion takes a dataframe to be divided based on timeslots and returns a dictionary
+    :param df: dataframe to be sorted into different timeslots
+    :return dict_by_time: dictionary of dataframe based on time slot is returned.
+    """
     time_slots = ['12am - 2:59am', '3am - 5:59am', '6am - 8:59am', '9am - 11:59am',
                   '12pm - 2:59pm', '3pm - 5:59pm', '6pm - 8:59pm', '9pm - 11:59pm']
     for hour in range(0, 24, 3):
