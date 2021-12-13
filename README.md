@@ -34,7 +34,7 @@ The food waste is lower when the food banks share supply in the network.
 
 In order to test the hypothesis, we focus on the following scenarios:   
 1. The food banks operate independently.   
-2. The food banks operate with extra supply through the network.
+2. The food banks operate with sharing supply through the network.
 
 ### Method
 - We used a NetworkX Graph as our principal data structure to calculate the sharing supply between food banks. 
@@ -48,42 +48,43 @@ In order to test the hypothesis, we focus on the following scenarios:
 
 ### Assumptions and Variables of Uncertainty
 We use two data sets to create our food banks network. The major data set with total population, food-insecure population, and food-secure population in each food  
-#### Demand - number of total food-insecure persons in each food bank per day 
-#### Supply - units of supply donated by food-secure persons per day 
+- **Demand - number of total food-insecure persons in each food bank per day**  
+- **Supply - units of supply donated by food-secure persons per day**
+  - Use Modified PERT random distribution to both demand and supply.
+  - 50% of food secure population are potential donors.
+  - Each donor donates a unit of fresh food (e.g. a bag or a box of fruits and vegetables) at least once per ten days. 
+  - Each food-insecure person takes a unit of fresh food average 1.6 times per week. 
 
-- Use Modified PERT random distribution to both demand and supply.
-- 50% of food secure population are potential donors.
-- Each donor donates a unit of fresh food (e.g. a bag or a box of fruits and vegetables) at least once per ten days. 
-- Each food-insecure person takes a unit of fresh food average 1.6 times per week. 
+- **Sharing  Supply** 
+  - The table below shows the transformation from demand_gap_rate into share_supply_rate. Considering the some food banks sharing more than one neighbors, we designed the corresponding ratio with the maximum 10% of their own supply sending out to avoid facing self-shortage.
+  - Potential percentage of sharing supply: demand_gap_rate = demand_gap / potential_supply_ppl
+  - Actual sharing supply: supply * share_supply_rate
+
+    | demand_gap_rate |  share_supply_rate | 
+    | :---------------: |:------------------:| 
+    |  > 20%           | 10%                | 
+    |  <= 20% or > 10% | demand_gap_rate/2  | 
+    |  <= 10%| 1% | 
 
 
-#### Extra Supply
-- Potential percentage of sharing supply: demand_gap_rate = demand_gap / potential_supply_ppl
 
-| demand_gap_rate |  share_supply_rate | 
-| --------------- |:------------------:| 
-|  > 0.2           | 0.1                | 
-|  <= 0.2 or > 0.1 | demand_gap_rate/2  | 
-|  <= 0.1.         | 0.01               | 
+- **level of Freshness**
+  - Use shelf life to present freshness of any kind of food. If the food will be spoiled  in 3 three days, we denote it as d5. When the food is in d0 at the end of the day, it becomes a waste.
+  - It's randomly generated for each runs by selecting 3-7 days, i.e. d3 to d7, so it's fixed in daily operations . 
 
-  
-- Actual sharing supply: supply * share_supply_rate
+- **Daily Operation by LIFO approach**
+  - Supply from donors are always in the freshest condition, which means the number goes to the longest days of shelf life.
+  - People always have a preference for the freshest food, i.e. d3>d2>d1>d0, because these food are free for people in need. So we apply LIFO (Last-In, First-Out) approach in our daily simulations to match real-world situations.
 
-#### Level of Freshness
-- Use shelf life to present freshness of any kind of food. If the food will be spoiled  in 3 three days, we denote it as d5.
-When the food is in d0 at the end of the day, it becomes a waste.
-
-#### Daily Operation by LIFO approach  
-- Supply from donors are always in the freshest condition, which means the number goes to the longest days of shelf life.
-- People always have a preference for the freshest food, i.e. d3>d2>d1>d0, because these food are free for people in need. So we apply LIFO (Last-In, First-Out) approach in our daily simulations to match real-world situations.
-
-#### Percentage of Food Waste   
-- (total_waste / total_supply) * 100
+- **Percentage of Food Waste**
+  - (total_waste / total_supply) * 100
+  - Based on daily operations, it's an accumulated number which might flunctuate by days.
+  - After running multiple times, the average percentage of each food bank is used to plot histograms. For example, if we run a 14-days operation 20 times, the final result we used is the mean of each food bank from 20 accumulated waste percentages among 14 days.
 
 ## Conclusions
 
 1. The simulation results showed that around 40% of food banks have lower waste by network support.
-2. The two version of histograms showing the distribution of average waste. One presents distribution of all food banks. The other was filtered by edges in order to closely observe the difference. 
+2. To closely observe the difference among the sharing partners, two version of histograms are created. to showing the distribution of average waste. One presents distribution of all food banks while the other only prints the connected food banks.  
 3. Based on the above results, the network between food banks regarding the sharing supply could lower the food waste to a certain degree.
 ![image](https://user-images.githubusercontent.com/89559531/145724707-410cc826-b34d-4129-87a0-ccf8f7c4ed8a.png "All_14days_50times_197nodes")
 ![image](https://user-images.githubusercontent.com/89559531/145724811-90e5af81-746a-4ad9-a077-4ed460a8548b.png "Nodes With Edges_14days_50times_197nodes")
@@ -97,7 +98,7 @@ In our simulation, we only use the FIFO approach to calculate daily transactions
 Although we didn't focus on the the relationship between food waste percentage and food freshness, we still found some trends. The daily percentage of food waste has something to do with the shelf life. It's a simple topic to extend based on our current model.
 3. Other scenarios expected to further studying
 The network in our model is created mainly by distance. There are so many scenarios that could use this model to test. For example, with the sharing relation, what if one of the sharing partners couldn't work, how the network operates to support each other? Are they able to fulfill normal daily demands? Or, what if some unexpected events destroy certain regions, is the existing network capable to support such urgent demand?
-4. Improve program efficiency
+4. Program efficiency
 With our primary purpose of conducting MC simulation, the current version will be better if we make some efficiency improvements.
 
 
